@@ -15,8 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-
-//Jhoana----------------
+/** JHOANA DOMINGUEZ**/
 Route::get('/', function () {
     return view('contenido_principal.inicio');
 });
@@ -33,4 +32,17 @@ Route::get('formC', function () {
     return view('contenido_principal.form_createEvent');
 });
 
-//Dominguez
+/** JHOANA DOMINGUEZ**/
+
+/** ZINCRI MENDOZA**/
+
+Route::get('/administrador/dashboard', function () {
+    return view('contenido_admin.dashboard');
+});
+
+Route::resource('/administrador/eventos','Admin\EventosController');
+Route::resource('/administrador/paquetes','Admin\PaquetesController');
+Route::resource('/administrador/usuarios','Admin\UsuariosController');
+Route::resource('/administrador/abonos','Admin\AbonosController');
+Route::resource('/administrador/gastos','Admin\GastosController');
+/** ZINCRI MENDOZA**/
