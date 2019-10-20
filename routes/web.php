@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+
+//Jhoana----------------
 Route::get('/', function () {
     return view('contenido_principal.inicio');
 });
@@ -26,3 +28,9 @@ Route::get('paquetes', function () {
 Route::get('galeria', function () {
     return view('contenido_principal.galeria');
 });
+
+Route::get('formC', function () {
+    return view('contenido_principal.form_createEvent');
+});
+
+//Dominguez
