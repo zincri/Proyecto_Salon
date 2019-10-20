@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/** ZINCRI MENDOZA**/
+
+Route::get('/administrador/dashboard', function () {
+    return view('contenido_admin.dashboard');
 });
+
+Route::resource('/administrador/eventos','Admin\EventosController');
+Route::resource('/administrador/paquetes','Admin\PaquetesController');
+Route::resource('/administrador/usuarios','Admin\UsuariosController');
+Route::resource('/administrador/abonos','Admin\AbonosController');
+Route::resource('/administrador/gastos','Admin\GastosController');
+/** ZINCRI MENDOZA**/
+
