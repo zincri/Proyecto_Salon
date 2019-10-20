@@ -10,6 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*
+Route::get('/', function () {
+    return view('welcome');
+});
+*/
+/** JHOANA DOMINGUEZ**/
+Route::get('/', function () {
+    return view('contenido_principal.inicio');
+});
+
+Route::get('paquetes', function () {
+    return view('contenido_principal.paquetes');
+});
+
+Route::get('galeria', function () {
+    return view('contenido_principal.galeria');
+});
+
+Route::get('formC', function () {
+    return view('contenido_principal.form_createEvent');
+});
+
+/** JHOANA DOMINGUEZ**/
 
 /** ZINCRI MENDOZA**/
 
@@ -23,4 +46,3 @@ Route::resource('/administrador/usuarios','Admin\UsuariosController');
 Route::resource('/administrador/abonos','Admin\AbonosController');
 Route::resource('/administrador/gastos','Admin\GastosController');
 /** ZINCRI MENDOZA**/
-
