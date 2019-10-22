@@ -52,7 +52,7 @@ class LoginController extends Controller
             return Redirect::to('administrador/empleado');
         }
         elseif($email == "cliente@gmail.com" && $password == "123456"){
-            // return pagina home cliente
+            return Redirect::to('sesion');
         }
         else{
             return back()->withErrors(['email'=> trans('Este usuario no existe')]);

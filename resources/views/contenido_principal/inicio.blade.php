@@ -3,7 +3,7 @@
 
 
 
-<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/j_img1.jpg);"
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url({{ asset ('images/j_img1.jpg') }});"
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
