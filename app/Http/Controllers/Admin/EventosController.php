@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class EventosController extends Controller
 {
@@ -47,7 +48,8 @@ class EventosController extends Controller
      */
     public function show($id)
     {
-        //
+        $galeria = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        return view("contenido_admin.eventos.show",['galeria'=>$galeria]);
     }
 
     /**
@@ -58,7 +60,7 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Redirect::to('administrador/eventos');
     }
 
     /**
@@ -81,6 +83,6 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Redirect::to('administrador/eventos');
     }
 }

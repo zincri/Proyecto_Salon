@@ -47,7 +47,8 @@ class AbonosController extends Controller
      */
     public function show($id)
     {
-        //
+        
+
     }
 
     /**

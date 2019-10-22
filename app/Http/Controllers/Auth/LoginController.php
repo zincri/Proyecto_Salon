@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -36,4 +37,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function login(){
+        $request =  request();
+        $credentials=$this->validate(request(),[
+            'email' => 'required|email|string',
+            'password' => 'required|string'
+        ]);
+        $email = $request->get('email');
+        $password = $request->get('password');
+        if($email == "zincri@gmail.com" && $password == "123456" || $email == "jhoana@gmail.com" && $password == "123456"){
+            return Redirect::to('administrador/dashboard');
+        }
+        elseif($email == "empleado@gmail.com" && $password == "123456"){
+            return Redirect::to('administrador/empleado');
+        }
+        elseif($email == "cliente@gmail.com" && $password == "123456"){
+            // return pagina home cliente
+        }
+        else{
+            return back()->withErrors(['email'=> trans('Este usuario no existe')]);
+        }
+    }
+
+    public function logout(){
+        return Redirect::to('/login');
+    }
+
 }
