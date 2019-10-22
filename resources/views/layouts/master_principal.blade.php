@@ -13,21 +13,22 @@
 		<!-- Icomoon Icon Fonts-->
 		<link rel="stylesheet" href="{{asset ('css/icomoon.css')}}">
 		<!-- Bootstrap  -->
-		<link rel="stylesheet" href="{{asset ('css/bootstrap.css') }}">
+		<link rel="stylesheet" href="{{asset ('css/css/bootstrap.css') }}">
 	
 		<!-- Magnific Popup -->
-		<link rel="stylesheet" href="{{ asset ('css/magnific-popup.css') }}">
+		<link rel="stylesheet" href="{{ asset ('css/css/magnific-popup.css') }}">
 	
 		<!-- Owl Carousel  -->
-		<link rel="stylesheet" href="{{ asset ('css/owl.carousel.min.css') }}">
+		<link rel="stylesheet" href="{{ asset ('css/css/owl.carousel.min.css') }}">
 	
-		<link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css') }}">
+		<link rel="stylesheet" href="{{ asset ('css/css/owl.theme.default.min.css') }}">
 		<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}"/>
 		<!-- Theme style  -->
 		<link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 		<link rel="icon" href="{{ asset ('favicon.ico') }}" type="image/x-icon" />      
 		<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}"/>
 			<!--Style Menu-->
+			<link href="{{ asset ('css/responsive/responsive.css')}}" rel="stylesheet">
 			<link href="{{ asset ('css/style2.css') }}" rel="stylesheet">
 		
         <!-- START PLUGINS -->
@@ -131,7 +132,6 @@
 		<script src="{{ asset ('js/jquery.magnific-popup.min.js') }}"></script>
 		<script src="{{ asset ('js/magnific-popup-options.js') }}"></script>
 	
-		<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
 		<script src="{{ asset ('js/simplyCountdown.js') }}"></script>
 		<!-- Main -->
 		<script src="{{ asset ('js/main.js') }}"></script>
