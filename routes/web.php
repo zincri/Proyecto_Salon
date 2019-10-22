@@ -16,10 +16,26 @@ Route::get('/', function () {
 });
 */
 /** JHOANA DOMINGUEZ**/
-Route::get('/', function () {
-    return view('contenido_principal.inicio');
+
+/** Usuario*/
+Route::get('usuario/paquete','Admin\PaquetesController@index3');
+
+Route::get('usuario/galeria', function () {
+    return view('contenido_usuario.galeria');
 });
 
+Route::get('usuario/contacto', function () {
+    return view('contenido_usuario.contacto');
+});
+
+Route::get('login', function () {
+    return view('auth.login');
+});
+/** Cliente*/
+
+Route::get('/', function () {
+    return view('contenido_usuario.inicio');
+});
 Route::get('paquete', 'Admin\PaquetesController@index2');
 Route::resource('galeria', 'Client\GaleriaController');
 
@@ -34,6 +50,9 @@ Route::get('contacto', function () {
 Route::get('eventos', function () {
     return view('contenido_principal.Evento');
 });
+
+
+
 
 /** JHOANA DOMINGUEZ**/
 
