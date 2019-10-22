@@ -28,11 +28,11 @@
                     </li>
                     <li class="xn-profile">
                         <a href="#" class="profile-mini">
-                            <img src="assets/images/users/avatar.jpg" alt="John Doe"/>
+                            <img src="assets/images/users/avatar.jpg" alt="Gerente"/>
                         </a>
                         <div class="profile">
                             <div class="profile-image">
-                                <img src="{{asset('assets/images/users/avatar.jpg')}}" alt="John Doe"/>
+                                <img src="{{asset('assets/images/users/avatar.jpg')}}" alt="Gerente"/>
                             </div>
                             <div class="profile-data">
                                 <div class="profile-data-name">Zincri Mendoza</div>
@@ -49,21 +49,21 @@
                         <a href="{{  url('administrador/dashboard')  }}"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
                     </li>                    
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Administración</span></a>
+                        <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Administración</span></a>
                         <ul>
-                            <li><a href="{{  url('administrador/gastos')  }}"><span class="fa fa-image"></span> Gastos</a></li>
-                            <li><a href="{{  url('administrador/abonos')  }}"><span class="fa fa-user"></span> Abonos</a></li>                  
+                            <li><a href="{{  url('administrador/gastos')  }}"><span class="fa fa-money"></span> Gastos</a></li>
+                            <li><a href="{{  url('administrador/abonos')  }}"><span class="fa fa-money"></span> Abonos</a></li>                  
                         </ul>
                     </li>
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Eventos</span></a>
+                        <a href="#"><span class="fa fa-weibo"></span> <span class="xn-text">Eventos</span></a>
                         <ul>
-                            <li><a href="{{  url('administrador/eventos')  }}">Eventos</a></li>
-                            <li><a href="{{  url('administrador/paquetes')  }}">Paquetes</a></li>
+                            <li><a href="{{  url('administrador/eventos')  }}"><span class="fa fa-weibo"></span>Eventos</a></li>
+                            <li><a href="{{  url('administrador/paquetes')  }}"><span class="fa fa-archive"></span>Paquetes</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Usuarios</span></a>
+                        <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Usuarios</span></a>
                         <ul>
                             <li><a href="{{  url('administrador/usuarios')  }}"><span class="fa fa-user"></span> Usuarios</a></li>
                         </ul>
@@ -215,12 +215,12 @@
                 <div class="mb-middle">
                     <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
                     <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>                    
-                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                        <p>¿Estas seguro que quieres salir?</p>                    
+                        <p>Preciona "No" si deseas continuar trabajando. Preciona "No" si deseas cerrar tu sesion.</p>
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <a href="{{ route('logout') }}" class="btn btn-success btn-lg">Yes</a>
                             <button class="btn btn-default btn-lg mb-control-close">No</button>
                         </div>
                     </div>

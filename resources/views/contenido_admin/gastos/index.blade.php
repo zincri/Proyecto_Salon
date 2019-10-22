@@ -7,6 +7,19 @@
 </div>
 <!-- END PAGE TITLE -->   
 <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-4" style="float: right;">
+                        <a href="{{ URL::action('Admin\GastosController@create')}}"><button
+                                class="btn btn-success btn-block"><span class="fa fa-plus"></span> Nuevo
+                                Gasto</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
     <div class="col-md-12">
 
         <!-- START DEFAULT DATATABLE -->
@@ -35,7 +48,18 @@
                             <td>Abono Ejemplo</td>
                             <td>2011/04/25</td>
                             <td>Zincri Mendoza</td>
-                            <td>Borrar</td>
+                            <td>
+                                    <a href="{{URL::action('Admin\GastosController@show',44)}}"><button
+                                            class="btn btn-info"><i class="fa fa-eye"></i></button></a>
+                                    &nbsp;
+                                    <a href="{{URL::action('Admin\GastosController@edit',44)}}"><button
+                                            class="btn btn-warning"><i class="fa fa-edit"></i></button></a>
+                                    &nbsp;
+                                    <a href="" class="profile-control-right" data-target="#message-box-danger-44"
+                                        data-toggle="modal"><button class="btn btn-danger"><i
+                                                class="fa fa-trash-o"></i></button></a>
+                                </td>
+                                @include('contenido_admin.gastos.delete')
                         </tr>
                         @endforeach
                     </tbody>

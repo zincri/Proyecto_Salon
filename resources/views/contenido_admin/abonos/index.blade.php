@@ -35,7 +35,11 @@
                             <td>Abono Ejemplo</td>
                             <td>2011/04/25</td>
                             <td>Zincri Mendoza</td>
-                            <td>Borrar</td>
+                            <td>
+                                <a href="{{URL::action('Admin\AbonosController@show',44)}}"><button
+                                        class="btn btn-info"><i class="fa fa-eye"></i></button></a>
+                                &nbsp;
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

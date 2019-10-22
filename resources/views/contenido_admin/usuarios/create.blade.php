@@ -33,6 +33,8 @@
                                         </div>
                                 </div>
 
+                            
+
 
                                 <div class="form-group {{$errors->has('password') ? 'has-error':''}}">
                                         <label class="col-md-3 col-xs-12 control-label">Contraseña</label>

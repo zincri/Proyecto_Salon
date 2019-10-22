@@ -28,12 +28,6 @@ class UsuariosController extends Controller
     {
         return view("contenido_admin.usuarios.create");
     }
-
-    public function crear_usuario()
-    {
-        return "create";
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -56,7 +50,7 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        //
+        return view("contenido_admin.usuarios.show");
     }
 
     /**
@@ -67,7 +61,8 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        return view("contenido_admin.usuarios.edit",['datos'=>$datos]);
     }
 
     /**
@@ -79,7 +74,8 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Aqui actualizamos todo
+        return Redirect::to('administrador/usuarios');
     }
 
     /**
@@ -90,6 +86,7 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Eliminar Datos
+        return Redirect::to('administrador/usuarios');
     }
 }

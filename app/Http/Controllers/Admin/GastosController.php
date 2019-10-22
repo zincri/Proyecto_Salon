@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class GastosController extends Controller
 {
@@ -25,7 +26,7 @@ class GastosController extends Controller
      */
     public function create()
     {
-        //
+        return view("contenido_admin.gastos.create");
     }
 
     /**
@@ -36,7 +37,7 @@ class GastosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Redirect::to('administrador/gastos');
     }
 
     /**
@@ -47,7 +48,7 @@ class GastosController extends Controller
      */
     public function show($id)
     {
-        //
+        return view("contenido_admin.gastos.show");
     }
 
     /**
@@ -58,7 +59,8 @@ class GastosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        return view("contenido_admin.gastos.edit",['datos'=>$datos]);
     }
 
     /**
@@ -70,7 +72,7 @@ class GastosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return Redirect::to('administrador/gastos');
     }
 
     /**
@@ -81,6 +83,6 @@ class GastosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Redirect::to('administrador/gastos');
     }
 }
