@@ -50,16 +50,17 @@
             <div class="panel panel-default">
                 <div class="panel-body profile">
                     <div class="profile-image">
-                        <img src="{{asset('assets/images/users/user3.jpg')}}" alt="Nadia Ali"/>
+                        <a href="{{ URL::action('Admin\UsuariosController@show',44)}}"><img src="{{asset('assets/images/users/user3.jpg')}}" alt="Nadia Ali"/></a>
                     </div>
                     <div class="profile-data">
                         <div class="profile-data-name">Nadia Ali</div>
                         <div class="profile-data-title">Singer-Songwriter</div>
                     </div>
                     <div class="profile-controls">
-                        <a href="#" class="profile-control-left"><span class="fa fa-edit"></span></a>
-                        <a href="#" class="profile-control-right"><span class="fa fa-trash-o"></span></a>
+                        <a href="{{ URL::action('Admin\UsuariosController@edit',44)}}" class="profile-control-left"><span class="fa fa-edit"></span></a>
+                        <a href="" class="profile-control-right" data-target="#message-box-danger-44" data-toggle="modal"><span class="fa fa-trash-o"></span></a>
                     </div>
+                    @include('contenido_admin.usuarios.delete')
                 </div>                                
                 <div class="panel-body">                                    
                     <div class="contact-info">

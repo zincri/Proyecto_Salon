@@ -1,8 +1,9 @@
 @extends ('layouts.master_admin')
 
 @section ('content')
-{!!Form::open(array('url'=>'administrador/usuarios','method'=>'POST','autocomplete'=>'off'))!!}
+{!!Form::open(array('action'=>['Admin\UsuariosController@update',44],'method'=>'PATCH','autocomplete'=>'off'))!!}
 {{Form::token()}}
+
                 <div class="form-horizontal">
                 <div class="panel panel-default">
                                 
@@ -14,7 +15,7 @@
                                         <div class="col-md-6 col-xs-12">                                            
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}"/>
+                                                <input type="text" class="form-control" name="nombre" value="Jhoana Isabel Dominguez Aguilar"/>
                                             </div>                                            
                                             {!! $errors->first('nombre','<span class="help-block">:message</span>')!!}
                                             
@@ -26,14 +27,12 @@
                                         <div class="col-md-6 col-xs-12">                                            
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}"/>
+                                                <input type="text" class="form-control" id="email" name="email" value="jhoana@gmail.com"/>
                                             </div>                                            
                                             {!! $errors->first('email','<span class="help-block">:message</span>')!!}
                                             
                                         </div>
                                 </div>
-
-                            
 
 
                                 <div class="form-group {{$errors->has('password') ? 'has-error':''}}">
@@ -41,7 +40,7 @@
                                         <div class="col-md-6 col-xs-12">                                            
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" class="form-control"  name="password" value="{{old('password')}}"/>
+                                                <input type="text" class="form-control"  name="password" value="password"/>
                                             </div>                                            
                                             {!! $errors->first('password','<span class="help-block">:message</span>')!!}
                                             
