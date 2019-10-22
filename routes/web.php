@@ -20,16 +20,19 @@ Route::get('/', function () {
     return view('contenido_principal.inicio');
 });
 
-Route::get('paquetes', function () {
-    return view('contenido_principal.paquetes');
-});
-
-Route::get('galeria', function () {
-    return view('contenido_principal.galeria');
-});
+Route::get('paquete', 'Admin\PaquetesController@index2');
+Route::resource('galeria', 'Client\GaleriaController');
 
 Route::get('formC', function () {
     return view('contenido_principal.form_createEvent');
+});
+
+Route::get('contacto', function () {
+    return view('contenido_principal.contacto');
+});
+
+Route::get('eventos', function () {
+    return view('contenido_principal.Evento');
 });
 
 /** JHOANA DOMINGUEZ**/

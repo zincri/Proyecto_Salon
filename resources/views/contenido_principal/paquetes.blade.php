@@ -31,33 +31,25 @@
             </div>
         </div>
         <div class="row col-12">
+            @foreach ($datos as $item)
+                
             <div class="col-12 col-xl-12 col-sm-6 col-md-4">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                    <img src="images/j_img4.jpg" alt="">
+                <img src="images/{{$item}}" alt="">
                     <div class="dish-info">
-                        <h6 class="dish-name">Lorem Ipsum Dolor Sit Amet</h6>
-                        <p class="dish-price">Crear</p>
+                        <h6 class="dish-name">
+                            <ul>
+                                <li>Platillo:Medallones de pollo</li>
+                                <li>Musica:Conjunto Completo</li>
+                                <li>Mesa de Dulces</li>
+                                <li>BebidasCervezas y refrescoss</li>
+                            </ul>
+                        </h6>
+                        <p class="dish-price"><a href="formC">Crear</a></p>
                     </div>
                 </div>
             </div> 
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                    <img src="images/j_img3.jpg" alt="">
-                    <div class="dish-info">
-                        <h6 class="dish-name">Lorem Ipsum</h6>
-                        <p class="dish-price">Crear</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1.5s">
-                    <img src="images/j_img5.jpg" alt="">
-                    <div class="dish-info">
-                        <h6 class="dish-name">Lorem Ipsum Dolor Sit Amet</h6>
-                        <p class="dish-price">Crear</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

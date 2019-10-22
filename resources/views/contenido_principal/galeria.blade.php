@@ -19,5 +19,23 @@
     </div>
 </header>
 
+<div class="row row-bottom-padded-md" style="margin-top:25px;">
+    <div class="col-md-12">
+        <ul id="fh5co-gallery-list">
+        @foreach ($dato as $item)
+            <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/{{$item}});"> 
+                <dt><span class="fa fa-pencil badge-danger"> </span></dt>
+                <dt><span class="gallery-item-remove"><i class="fa fa-times"></i></span></dt>
+            <a href="images/{{$item}}">
+                <div class="case-studies-summary">
+                </div>
+            </a>
+        </li>
+
+        @endforeach
+ 
+        </ul>		
+    </div>
+</div>
 
 @endsection
