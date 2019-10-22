@@ -62,9 +62,9 @@
 							<li>
 								<a href="{{ url ('galeria') }}">Eventos</a>
 							</li>
-							<li><a href="contacto">Contacto</a></li>
-							<li><a href="#">Zincri Mendoza</a></li>
+							<li><a href="contacto">Contacto</a></li>	
 							<li><a class="glyphicon glyphicon-shopping-cart" href="eventos"></a></li>
+						<li><a href="">Zincri Mendoza</a><dd><a href="{{ url ('logout') }}">Logout</a></dd></li>
 						</ul>
 					</div>
 				</div>

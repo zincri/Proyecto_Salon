@@ -13,5 +13,6 @@ class GaleriaController extends Controller
         $dato = array("images/j_img14.jpg","images/j_img15.jpg","images/j_img16.jpg");
         return view("contenido_principal.galeria",['dato'=>$dato]);
     }
+
        
 }

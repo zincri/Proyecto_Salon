@@ -75,7 +75,7 @@
                                 <a href="{{ url ('login')}}">Login</a>
                             </li>
                             <li><a href="{{ url ('usuario/contacto') }}">Contacto</a></li>
-                            <li><a class="glyphicon glyphicon-shopping-cart" href="login"></a></li>
+                            <li><a class="glyphicon glyphicon-shopping-cart" href="{{ url ('login') }}"></a></li>
                         </ul>
                     </div>
                 </div>

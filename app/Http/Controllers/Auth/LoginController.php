@@ -60,7 +60,7 @@ class LoginController extends Controller
     }
 
     public function logout(){
-        return Redirect::to('/login');
+        return Redirect::to('login');
     }
 
 }

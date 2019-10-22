@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('usuario/paquete','Admin\PaquetesController@index3');
 
 Route::get('usuario/galeria', function () {
-    $dato = array("j_img14.jpg","j_img15.jpg","j_img16.jpg");
+    $dato = array("images/j_img14.jpg","images/j_img15.jpg","images/j_img16.jpg");
     return view("contenido_usuario.galeria",['dato'=>$dato]);
 });
 

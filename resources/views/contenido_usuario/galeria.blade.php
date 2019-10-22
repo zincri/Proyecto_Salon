@@ -24,7 +24,7 @@
         <ul id="fh5co-gallery-list">
             @foreach ($dato as $item)
             <li class="one-third animate-box" data-animate-effect="fadeIn"
-                style="background-image: url{{ asset ($item) }});">
+                style="background-image: url({{ asset ($item) }});">
                 <a href="{{asset ($item) }}">
                     <div class="case-studies-summary">
                     </div>
