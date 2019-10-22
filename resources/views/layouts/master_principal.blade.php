@@ -57,7 +57,7 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="active"><a href="/">Home</a></li>
+						<li class="active"><a href="{{url ('sesion')}}">Home</a></li>
 							<li><a href="{{ url ('paquete') }}">Paquetes</a></li>
 							<li>
 								<a href="{{ url ('galeria') }}">Eventos</a>

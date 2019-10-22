@@ -108,7 +108,7 @@
                             </li>
                             <li class="animate-box">
                                 <div class="timeline-badge" style="background-color:whitesmoke;">
-                                    <p><a href="#" class="btn btn-default btn-lg">Agenda tu evento</a></p>
+                                <p><a href="{{ url ('paquete')}}" class="btn btn-default btn-lg">Agenda tu evento</a></p>
                                 </div>
                             </li>
 
