@@ -21,15 +21,41 @@
 		<!-- Owl Carousel  -->
 		<link rel="stylesheet" href="{{ asset ('css/owl.carousel.min.css') }}">
 		<link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css') }}">
+		<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}"/>
 	
 		<!-- Theme style  -->
 		<link rel="stylesheet" href="{{ asset ('css/style.css') }}">
+		<link rel="icon" href="{{ asset ('favicon.ico') }}" type="image/x-icon" />      
+		<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}"/>
+			<!--Style Menu-->
+			<link href="{{ asset ('css/responsive/responsive.css')}}" rel="stylesheet') }}">
+			<link href="{{ asset ('css/style2.css') }}" rel="stylesheet">
+			
+					
+  <!-- START SCRIPTS -->
+        <!-- START PLUGINS -->
+        <script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset ('js/plugins/bootstrap/bootstrap.min.js') }}"></script>                
+        <!-- END PLUGINS -->
+        
+        <!-- THIS PAGE PLUGINS -->
+        <script type="text/javascript" src="{{ asset ('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset ('js/plugins/bootstrap/bootstrap-datepicker.js') }}"></script> 
+        <script type="text/javascript" src="{{ asset ('js/plugins/blueimp/jquery.blueimp-gallery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset ('js/plugins/dropzone/dropzone.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset ('js/plugins/icheck/icheck.min.js') }}"></script>
+        <!-- END THIS PAGE PLUGINS -->       
+        
+        <!-- START TEMPLATE -->
+        <script type="text/javascript" src="{{ asset ('js/settings.js') }}"></script>
+        
+        <script type="text/javascript" src="{{ asset ('js/plugins.js') }}"></script>        
+        <script type="text/javascript" src="{{ asset ('js/actions.js') }}"></script>        
+        <!-- END TEMPLATE -->
+			
+		<script src="{{ asset ('js/modernizr-2.6.2.min.js') }}"></script>
 
-		<!--Style Menu-->
-		<link href="css/responsive/responsive.css" rel="stylesheet">
-		<link href="{{ asset ('css/style2.css') }}" rel="stylesheet">
-	
-	<script src="{{ asset ('js/modernizr-2.6.2.min.js') }}"></script>
 
 </head>
 <body>
@@ -42,19 +68,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="">Fantasy<strong>.</strong></a></div>
+					<div id="fh5co-logo"><a href="">Fantasy</a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li class="active"><a href="">Home</a></li>
-						<li><a href="paquetes">Paquetes</a></li>
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="{{ url ('paquete') }}">Paquetes</a></li>
 						<li>
-							<a href="galeria">Galeria</a>
+						<a href="{{ url ('galeria') }}">Galeria</a>
 						</li>
 						<li>
 							<a href="gallery.html">Login</a>
 						</li>
-						<li><a href="contact.html">Contacto</a></li>
+						<li><a href="contacto">Contacto</a></li>
+						<li><a class="glyphicon glyphicon-shopping-cart" href="eventos"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -68,12 +95,38 @@
 
 
 	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container">
-         <h1>Pie</h1>
+		<div class="container text-center" >
+				<div class="row copyright">
+				<div class="col-md-12 text-center">
+						<h4>Contact Information</h4>
+						<ul class="fh5co-footer-links">
+							<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li><a href="/">+ 1235 2355 98</a></li>
+							<li><a href="/">7397@ittg.com</a></li>
+							<li><a href="/">Zincri-Jhoana</a></li>
+						</ul>
+					</div>
+	
+				</div>
+					<div class="col-md-12 text-center">
+						<p>
+							<small class="block">&copy; Frameworks Class/Jhoana/Zincri.</small> 
+						</p >
+						<p>
+							<ul class="fh5co-social-icons">
+								<li><a href="#"><i class="icon-twitter2"></i></a></li>
+								<li><a href="#"><i class="icon-facebook2"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin2"></i></a></li>
+								<li><a href="#"><i class="icon-dribbble2"></i></a></li>
+							</ul>
+						</p>
+					</div>
+				</div>
+	
+			</div>
 
 		</div>
 	</footer>
-
 
 		<!-- jQuery -->
 		<script src="{{ asset ('js/jquery.min.js') }}"></script>
@@ -98,5 +151,8 @@
 		<script src="{{ asset ('js/simplyCountdown.js') }}"></script>
 		<!-- Main -->
 		<script src="{{ asset ('js/main.js') }}"></script>
+
+
+		
 </body>
 </html>

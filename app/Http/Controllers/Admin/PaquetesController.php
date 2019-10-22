@@ -18,6 +18,12 @@ class PaquetesController extends Controller
         return view("contenido_admin.paquetes.index",['datos'=>$datos]);
     }
 
+    public function index2()
+    {
+        $datos = array("j_img3.jpg", "j_img4.jpg", "j_img5.jpg");
+        return view("contenido_principal.paquetes",['datos'=>$datos]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

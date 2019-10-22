@@ -94,7 +94,7 @@
                                   
                         </div>
                                     
-                        <button class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i></button>
+                    <button class="btn btn-success add-cart item_add " onclick="location.href='eventos'"><i class="glyphicon glyphicon-shopping-cart"></i></button>
                                     
                                 </div>
                             </div>
