@@ -2,6 +2,7 @@ $(function() {
 
     var formElements = function(){                
         // Bootstrap datepicker
+        /*
         var feDatepicker = function(){                        
             if($(".datepicker").length > 0){
                 $(".datepicker").datepicker({format: 'yyyy-mm-dd'});                
@@ -9,7 +10,7 @@ $(function() {
             }           
             
         }// END Bootstrap datepicker
-        
+        */
         //Bootstrap timepicker
         var feTimepicker = function(){
             // Default timepicker

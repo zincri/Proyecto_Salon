@@ -1,7 +1,7 @@
 @extends('layouts.master_principal')
 @section('content')
 
-<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url({{ asset ('images/j_img8.jpg') }});" data-stellar-background-ratio="0.5">
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/j_img8.jpg);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -23,10 +23,10 @@
     <div class="col-md-12">
         <ul id="fh5co-gallery-list">
         @foreach ($dato as $item)
-            <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url({{ ($item) }});"> 
+            <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/{{$item}});"> 
                 <dt><span class="fa fa-pencil badge-danger"> </span></dt>
                 <dt><span class="gallery-item-remove"><i class="fa fa-times"></i></span></dt>
-            <a href="{{asset ($item)}}">
+            <a href="images/{{$item}}">
                 <div class="case-studies-summary">
                 </div>
             </a>

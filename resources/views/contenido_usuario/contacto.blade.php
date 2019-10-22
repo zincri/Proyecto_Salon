@@ -1,4 +1,4 @@
-@extends('layouts.master_principal')
+@extends('layouts.master_usuario')
 @section('content')
 
 <header id="fh5co-header" class="fh5co-cover" role="banner"
@@ -12,7 +12,6 @@
                         <h1> Contacto </h1>
                         <h2></h2>
                         <div class="simply-countdown simply-countdown-one"></div>
-                        <p><a href="#" class="btn btn-default btn-sm">Agregar Fotos</a></p>
                     </div>
                 </div>
             </div>
