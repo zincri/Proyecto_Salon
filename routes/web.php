@@ -21,7 +21,8 @@ Route::get('/', function () {
 Route::get('usuario/paquete','Admin\PaquetesController@index3');
 
 Route::get('usuario/galeria', function () {
-    return view('contenido_usuario.galeria');
+    $dato = array("j_img14.jpg","j_img15.jpg","j_img16.jpg");
+    return view("contenido_usuario.galeria",['dato'=>$dato]);
 });
 
 Route::get('usuario/contacto', function () {
@@ -35,6 +36,10 @@ Route::get('login', function () {
 
 Route::get('/', function () {
     return view('contenido_usuario.inicio');
+});
+
+Route::get('sesion', function () {
+    return view('contenido_principal.inicio');
 });
 Route::get('paquete', 'Admin\PaquetesController@index2');
 Route::resource('galeria', 'Client\GaleriaController');
