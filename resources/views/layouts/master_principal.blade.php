@@ -20,39 +20,23 @@
 	
 		<!-- Owl Carousel  -->
 		<link rel="stylesheet" href="{{ asset ('css/owl.carousel.min.css') }}">
+	
 		<link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css') }}">
 		<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}"/>
-	
 		<!-- Theme style  -->
 		<link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 		<link rel="icon" href="{{ asset ('favicon.ico') }}" type="image/x-icon" />      
 		<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}"/>
 			<!--Style Menu-->
-			<link href="{{ asset ('css/responsive/responsive.css')}}" rel="stylesheet') }}">
 			<link href="{{ asset ('css/style2.css') }}" rel="stylesheet">
-			
-					
-  <!-- START SCRIPTS -->
+		
         <!-- START PLUGINS -->
         <script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery-ui.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset ('js/plugins/bootstrap/bootstrap.min.js') }}"></script>                
         <!-- END PLUGINS -->
         
-        <!-- THIS PAGE PLUGINS -->
-        <script type="text/javascript" src="{{ asset ('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset ('js/plugins/bootstrap/bootstrap-datepicker.js') }}"></script> 
-        <script type="text/javascript" src="{{ asset ('js/plugins/blueimp/jquery.blueimp-gallery.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset ('js/plugins/dropzone/dropzone.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset ('js/plugins/icheck/icheck.min.js') }}"></script>
-        <!-- END THIS PAGE PLUGINS -->       
-        
-        <!-- START TEMPLATE -->
-        <script type="text/javascript" src="{{ asset ('js/settings.js') }}"></script>
-        
-        <script type="text/javascript" src="{{ asset ('js/plugins.js') }}"></script>        
-        <script type="text/javascript" src="{{ asset ('js/actions.js') }}"></script>        
-        <!-- END TEMPLATE -->
+         
 			
 		<script src="{{ asset ('js/modernizr-2.6.2.min.js') }}"></script>
 
@@ -75,12 +59,10 @@
 						<li class="active"><a href="/">Home</a></li>
 						<li><a href="{{ url ('paquete') }}">Paquetes</a></li>
 						<li>
-						<a href="{{ url ('galeria') }}">Galeria</a>
-						</li>
-						<li>
-							<a href="gallery.html">Login</a>
+						<a href="{{ url ('galeria') }}">Eventos</a>
 						</li>
 						<li><a href="contacto">Contacto</a></li>
+						<li><a href="#">Zincri Mendoza</a></li>
 						<li><a class="glyphicon glyphicon-shopping-cart" href="eventos"></a></li>
 					</ul>
 				</div>
@@ -128,6 +110,8 @@
 		</div>
 	</footer>
 
+	
+
 		<!-- jQuery -->
 		<script src="{{ asset ('js/jquery.min.js') }}"></script>
 		<!-- jQuery Easing -->
@@ -153,6 +137,10 @@
 		<script src="{{ asset ('js/main.js') }}"></script>
 
 
-		
+		<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>
+
+		<!-- END THIS PAGE PLUGINS -->  
+
+		<script type="text/javascript" src="{{asset('js/plugins.js')}}"></script>  
 </body>
 </html>
