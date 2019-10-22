@@ -28,11 +28,11 @@
                     </li>
                     <li class="xn-profile">
                         <a href="#" class="profile-mini">
-                            <img src="assets/images/users/avatar.jpg" alt="John Doe"/>
+                            <img src="{{asset('assets/images/users/usear4.jpg')}}" alt="Empleado"/>
                         </a>
                         <div class="profile">
                             <div class="profile-image">
-                                <img src="{{asset('assets/images/users/usear4.jpg')}}" alt="John Doe"/>
+                                <img src="{{asset('assets/images/users/usear4.jpg')}}" alt="Empleado"/>
                             </div>
                             <div class="profile-data">
                                 <div class="profile-data-name">Jhoana Dominguez</div>
