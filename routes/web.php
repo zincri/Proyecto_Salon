@@ -86,3 +86,5 @@ Route::post('/login','Auth\LoginController@login')->name('login');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
 
 /** ZINCRI MENDOZA**/
+
+Route::resource('clientes/eventos','EventosClienteController');

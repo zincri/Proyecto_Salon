@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Organizer;
 use App\Event;
 
-class EventosController extends Controller
+class EventosClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,8 @@ class EventosController extends Controller
     public function index()
     {
         $datos = Event::all();
-        return view("contenido_admin.eventos.index",['datos'=>$datos]);
-        
+        return view("contenido_principal.cliente_eventos.index",['datos'=>$datos]);
+
     }
 
     /**
@@ -30,7 +29,7 @@ class EventosController extends Controller
     public function create()
     {
         $combo=Organizer::all();
-        return view("contenido_admin.eventos.create",['combo'=>$combo]);
+        return view("contenido_principal.cliente_eventos.create",['combo'=>$combo]);
     }
 
     /**
@@ -41,30 +40,7 @@ class EventosController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials=$this->validate(request(),[
-            'nombre' => 'required|string',
-            'descripcion' => 'required|string',
-            'fecha'=>'required',
-            'estado'=>'required',
-            'numero_invitados'=>'required',
-            'anfitrion'=>'required',
-
-        ]);
-        $event = new Event;
-        $event->nombre = $request->nombre;
-        $event->descripcion = $request->descripcion;
-        $event->fecha = $request->fecha;
-        if ($request->estado == "Confirmado"){
-            $event->estado = 1;
-        }
-        else{
-            $event->estado =0;
-        }
-        $event->numero_invitados = $request->numero_invitados;
-        $event->anfitrion = $request->anfitrion;
-        $event->url_imagen_principal = "img/eventos/evento.jpg";
-        $event->save();
-        return Redirect::to('administrador/eventos');
+        //
     }
 
     /**
@@ -76,7 +52,7 @@ class EventosController extends Controller
     public function show($id)
     {
         $galeria = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        return view("contenido_admin.eventos.show",['galeria'=>$galeria]);
+        return view("contenido_principal.cliente_eventos.show",['galeria'=>$galeria]);
     }
 
     /**
@@ -87,7 +63,7 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
-        return Redirect::to('administrador/eventos');
+        //
     }
 
     /**
@@ -110,6 +86,6 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        return Redirect::to('administrador/eventos');
+        //
     }
 }

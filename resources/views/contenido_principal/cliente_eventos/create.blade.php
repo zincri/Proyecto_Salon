@@ -1,7 +1,7 @@
-@extends ('layouts.master_admin')
+@extends ('layouts.master_cliente')
 
 @section ('content')
-{!!Form::open(array('url'=>'administrador/eventos','method'=>'POST','autocomplete'=>'off', 'files' => 'false'))!!}
+{!!Form::open(array('url'=>'clientes/eventos','method'=>'POST','autocomplete'=>'off', 'files' => 'false'))!!}
 {{Form::token()}}
 
 <div class="form-horizontal">
