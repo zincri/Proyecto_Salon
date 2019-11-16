@@ -59,6 +59,7 @@
                         <a href="#"><span class="fa fa-weibo"></span> <span class="xn-text">Eventos</span></a>
                         <ul>
                             <li><a href="{{  url('administrador/eventos')  }}"><span class="fa fa-weibo"></span>Eventos</a></li>
+                            <li><a href="{{  url('administrador/clientes_organizadores')  }}"><span class="fa fa-weibo"></span>Clientes Organizadores</a></li>
                             <li><a href="{{  url('administrador/paquetes')  }}"><span class="fa fa-archive"></span>Paquetes</a></li>
                         </ul>
                     </li>

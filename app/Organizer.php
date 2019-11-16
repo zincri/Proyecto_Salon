@@ -9,6 +9,6 @@ class Organizer extends Model
     //
     public function event()
     {
-        return $this->hasOne('App\Event');
+        return $this->hasMany('App\Event',"anfitrion");
     }
 }
