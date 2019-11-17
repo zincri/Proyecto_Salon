@@ -32,9 +32,13 @@
             </ul>
         </div>
 
-        <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 4000px">
-            <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Google World Map</h3>
+            </div>
+            <div class="panel-body panel-body-map">
+                <div id="google_world_map" style="width: 100%; height: 300px;"></div>
+            </div>
         </div>
 
     </div>

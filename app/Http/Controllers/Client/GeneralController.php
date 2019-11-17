@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Client;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
-class PaquetesController extends Controller
+class GeneralController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,14 @@ class PaquetesController extends Controller
      */
     public function index()
     {
-        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        return view("contenido_admin.paquetes.index",['datos'=>$datos]);
+        $datos = ;
+        return view("contenido_principal.paquetes",['datos'=>$datos]);
+    }
+
+    public function index3()
+    {
+        $datos = array("images/j_img3.jpg", "images/j_img4.jpg", "images/j_img5.jpg");
+        return view("contenido_usuario.paquetes",['datos'=>$datos]);
     }
 
     /**
@@ -26,7 +30,7 @@ class PaquetesController extends Controller
      */
     public function create()
     {
-        return view("contenido_admin.paquetes.create");
+        //
     }
 
     /**
@@ -37,7 +41,7 @@ class PaquetesController extends Controller
      */
     public function store(Request $request)
     {
-        return Redirect::to('administrador/paquetes');
+        //
     }
 
     /**
@@ -48,7 +52,7 @@ class PaquetesController extends Controller
      */
     public function show($id)
     {
-        return view("contenido_admin.paquetes.show");
+        //
     }
 
     /**
@@ -59,8 +63,7 @@ class PaquetesController extends Controller
      */
     public function edit($id)
     {
-        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        return view("contenido_admin.paquetes.edit",['datos'=>$datos]);
+        //
     }
 
     /**
@@ -72,7 +75,7 @@ class PaquetesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return Redirect::to('administrador/paquetes');
+        //
     }
 
     /**
@@ -83,7 +86,6 @@ class PaquetesController extends Controller
      */
     public function destroy($id)
     {
-        //Eliminar Datos
-        return Redirect::to('administrador/paquetes');
+        //
     }
 }
