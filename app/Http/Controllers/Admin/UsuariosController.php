@@ -45,10 +45,10 @@ class UsuariosController extends Controller
             'apellido_materno'=>'required',
             'edad'=>'required',
             'rol'=>'required',
-            'password'=>'required',
             'nombre'=>'required|string|max:50',
             'email' => 'required|string|email|max:50|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'telefono'=>'required|string|max:10',
         ]);
 
         $usuario = new User;
@@ -60,6 +60,7 @@ class UsuariosController extends Controller
         $usuario->apellido_paterno = $request->get('apellido_paterno');
         $usuario->apellido_materno = $request->get('apellido_materno');
         $usuario->edad = $request->get('edad');
+        $usuario->telefono = $request->get('telefono');
         $usuario->save();
         return Redirect::to('administrador/usuarios');
     }
@@ -104,6 +105,7 @@ class UsuariosController extends Controller
             'rol'=>'required',
             'nombre'=>'required|string|max:50',
             'email' => 'required|string|email|max:50',
+            'telefono'=>'required|string|max:10',
         ]);
 
         $usuario = User::findOrFail($id);
@@ -115,6 +117,7 @@ class UsuariosController extends Controller
         $usuario->apellido_paterno = $request->get('apellido_paterno');
         $usuario->apellido_materno = $request->get('apellido_materno');
         $usuario->edad = $request->get('edad');
+        $usuario->telefono = $request->get('telefono');
         $usuario->update();
 
         return Redirect::to('administrador/usuarios');

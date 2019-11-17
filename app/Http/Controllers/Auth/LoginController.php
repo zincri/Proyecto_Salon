@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -49,13 +50,23 @@ class LoginController extends Controller
 
 
         if(User::where('email', '=', $email)->first()){
-            return Redirect::to('administrador/dashboard');
-        }
-        elseif($email == "empleado@gmail.com" && $password == "123456"){
-            return Redirect::to('administrador/empleado');
-        }
-        elseif($email == "cliente@gmail.com" && $password == "123456"){
-            return Redirect::to('sesion');
+            $usuario=User::where('email', '=', $email)->first();
+            
+            if (Hash::check($password, $usuario->password)){
+                    if ($usuario->rol == "manager"){
+                        return Redirect::to('administrador/dashboard');
+                    }
+                    elseif($usuario->rol == "employee"){
+                        return Redirect::to('administrador/empleado');
+                    }
+                    elseif($usuario->rol == "client"){
+                        return Redirect::to('sesion');
+                    }
+            }
+            else {
+                return back()->withErrors(['password'=> trans('La contraseña es incorrecta')]);
+            }
+        
         }
         else{
             return back()->withErrors(['email'=> trans('Este usuario no existe')]);
