@@ -11,7 +11,7 @@
                         <h1> Galeria </h1>
                         <h2></h2>
                         <div class="simply-countdown simply-countdown-one"></div>
-                        <p><a href="#" class="btn btn-default btn-sm">Agregar Fotos</a></p>
+                    <p><a href="{{url('clientes/eventos')}}" class="btn btn-default btn-sm">Crear un Evento</a></p>
                     </div>
                 </div>
             </div>

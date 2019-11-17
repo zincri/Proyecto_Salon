@@ -50,23 +50,22 @@
             <div class="panel panel-default">
                 <div class="panel-body profile">
                     <div class="profile-image">
-                        <a href="{{ URL::action('Admin\UsuariosController@show',44)}}"><img src="{{asset('assets/images/users/user3.jpg')}}" alt="Nadia Ali"/></a>
+                        <a href="{{ URL::action('Admin\UsuariosController@show',$item->id)}}"><img src="{{asset('assets/images/users/user3.jpg')}}" alt="Nadia Ali"/></a>
                     </div>
                     <div class="profile-data">
-                        <div class="profile-data-name">Nadia Ali</div>
-                        <div class="profile-data-title">Singer-Songwriter</div>
+                        <div class="profile-data-name">{{$item->name}}</div>
+                        <div class="profile-data-title">{{$item->rol}}</div>
                     </div>
                     <div class="profile-controls">
-                        <a href="{{ URL::action('Admin\UsuariosController@edit',44)}}" class="profile-control-left"><span class="fa fa-edit"></span></a>
-                        <a href="" class="profile-control-right" data-target="#message-box-danger-44" data-toggle="modal"><span class="fa fa-trash-o"></span></a>
+                        <a href="{{ URL::action('Admin\UsuariosController@edit',$item->id)}}" class="profile-control-left"><span class="fa fa-edit"></span></a>
+                        <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}" data-toggle="modal"><span class="fa fa-trash-o"></span></a>
                     </div>
                     @include('contenido_admin.usuarios.delete')
                 </div>                                
                 <div class="panel-body">                                    
                     <div class="contact-info">
-                        <p><small>Mobile</small><br/>(555) 555-55-55</p>
-                        <p><small>Email</small><br/>nadiaali@domain.com</p>
-                        <p><small>Address</small><br/>123 45 Street San Francisco, CA, USA</p>                                   
+                        <p><small>Telefono</small><br/>{{$item->telefono}}</p>
+                        <p><small>Email</small><br/>{{$item->email}}</p>                                 
                     </div>
                 </div>                                
             </div>

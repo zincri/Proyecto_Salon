@@ -923,7 +923,7 @@ color:#fff;
   border-bottom: 1px solid #F0F5F7;
 }
 .x-navigation > li.xn-profile .profile-data-name {
-  color: #555;
+  color: #000;
 }
 .x-navigation > li.xn-profile .profile-mini {
   display: none;
@@ -1091,7 +1091,7 @@ color:#fff;
   float: left;
   font-size: 14px;
   font-weight: 500;
-  color: #FFF;
+  color: #000;
 }
 .profile .profile-data .profile-data-title {
   width: 100%;

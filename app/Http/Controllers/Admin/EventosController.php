@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\Organizer;
+use App\Event;
 
 class EventosController extends Controller
 {
@@ -15,8 +17,9 @@ class EventosController extends Controller
      */
     public function index()
     {
-        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        $datos = Event::all();
         return view("contenido_admin.eventos.index",['datos'=>$datos]);
+        
     }
 
     /**
@@ -26,7 +29,8 @@ class EventosController extends Controller
      */
     public function create()
     {
-        //
+        $combo=Organizer::all();
+        return view("contenido_admin.eventos.create",['combo'=>$combo]);
     }
 
     /**
@@ -37,7 +41,30 @@ class EventosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $credentials=$this->validate(request(),[
+            'nombre' => 'required|string',
+            'descripcion' => 'required|string',
+            'fecha'=>'required',
+            'estado'=>'required',
+            'numero_invitados'=>'required',
+            'anfitrion'=>'required',
+
+        ]);
+        $event = new Event;
+        $event->nombre = $request->nombre;
+        $event->descripcion = $request->descripcion;
+        $event->fecha = $request->fecha;
+        if ($request->estado == "Confirmado"){
+            $event->estado = 1;
+        }
+        else{
+            $event->estado =0;
+        }
+        $event->numero_invitados = $request->numero_invitados;
+        $event->anfitrion = $request->anfitrion;
+        $event->url_imagen_principal = "img/eventos/evento.jpg";
+        $event->save();
+        return Redirect::to('administrador/eventos');
     }
 
     /**

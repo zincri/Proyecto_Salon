@@ -36,7 +36,7 @@
                             </div>
                             <div class="profile-data">
                                 <div class="profile-data-name">Zincri Mendoza</div>
-                                <div class="profile-data-title">Gerente</div>
+                                <div class="profile-data-title">Cliente</div>
                             </div>
                             <div class="profile-controls">
                                 <a href="" class="profile-control-left"><span class="fa fa-info"></span></a>
@@ -47,26 +47,11 @@
                     <li class="xn-title">Navegación</li>
                     <li class="active">
                         <a href="{{  url('administrador/dashboard')  }}"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
-                    </li>                    
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Administración</span></a>
-                        <ul>
-                            <li><a href="{{  url('administrador/gastos')  }}"><span class="fa fa-money"></span> Gastos</a></li>
-                            <li><a href="{{  url('administrador/abonos')  }}"><span class="fa fa-money"></span> Abonos</a></li>                  
-                        </ul>
-                    </li>
+                    </li>  
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-weibo"></span> <span class="xn-text">Eventos</span></a>
                         <ul>
                             <li><a href="{{  url('administrador/eventos')  }}"><span class="fa fa-weibo"></span>Eventos</a></li>
-                            <li><a href="{{  url('administrador/clientes_organizadores')  }}"><span class="fa fa-weibo"></span>Clientes Organizadores</a></li>
-                            <li><a href="{{  url('administrador/paquetes')  }}"><span class="fa fa-archive"></span>Paquetes</a></li>
-                        </ul>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Usuarios</span></a>
-                        <ul>
-                            <li><a href="{{  url('administrador/usuarios')  }}"><span class="fa fa-user"></span> Usuarios</a></li>
                         </ul>
                     </li>
                     

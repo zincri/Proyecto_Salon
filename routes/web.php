@@ -71,6 +71,7 @@ Route::get('/administrador/empleado', function () {
 });
 
 Route::resource('/administrador/eventos','Admin\EventosController');
+Route::resource('/administrador/clientes_organizadores','Admin\ClientesOrganizadoresController');
 Route::resource('/administrador/paquetes','Admin\PaquetesController');
 Route::resource('/administrador/usuarios','Admin\UsuariosController');
 Route::resource('/administrador/abonos','Admin\AbonosController');
@@ -86,3 +87,5 @@ Route::post('/login','Auth\LoginController@login')->name('login');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
 
 /** ZINCRI MENDOZA**/
+
+Route::resource('clientes/eventos','EventosClienteController');

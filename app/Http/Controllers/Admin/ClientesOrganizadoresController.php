@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Expense;
+use App\Organizer;
+use App\Event;
 
-class GastosController extends Controller
+
+class ClientesOrganizadoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +18,8 @@ class GastosController extends Controller
      */
     public function index()
     {
-        $datos = Expense::all();
-        return view("contenido_admin.gastos.index",['datos'=>$datos]);
+        $datos = Organizer::All();
+        return view("contenido_admin.clientes_organizadores.index",['datos'=>$datos]);
     }
 
     /**
@@ -27,7 +29,7 @@ class GastosController extends Controller
      */
     public function create()
     {
-        return view("contenido_admin.gastos.create");
+        //
     }
 
     /**
@@ -38,7 +40,7 @@ class GastosController extends Controller
      */
     public function store(Request $request)
     {
-        return Redirect::to('administrador/gastos');
+        //
     }
 
     /**
@@ -49,7 +51,9 @@ class GastosController extends Controller
      */
     public function show($id)
     {
-        return view("contenido_admin.gastos.show");
+        $datos = Organizer::find($id);
+        return view("contenido_admin.clientes_organizadores.show",['datos'=>$datos]);
+
     }
 
     /**
@@ -60,8 +64,7 @@ class GastosController extends Controller
      */
     public function edit($id)
     {
-        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        return view("contenido_admin.gastos.edit",['datos'=>$datos]);
+        //
     }
 
     /**
@@ -73,7 +76,7 @@ class GastosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return Redirect::to('administrador/gastos');
+        //
     }
 
     /**
@@ -84,6 +87,6 @@ class GastosController extends Controller
      */
     public function destroy($id)
     {
-        return Redirect::to('administrador/gastos');
+        //
     }
 }

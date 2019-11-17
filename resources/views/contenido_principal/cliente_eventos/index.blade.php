@@ -1,4 +1,4 @@
-@extends ('layouts.master_admin')
+@extends ('layouts.master_cliente')
 
 @section ('content')
 <!-- PAGE TITLE -->
@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-4" style="float: right;">
-                        <a href="{{ URL::action('Admin\EventosController@create')}}"><button
+                        <a href="{{ URL::action('EventosClienteController@create')}}"><button
                                 class="btn btn-success btn-block"><span class="fa fa-plus"></span> Nuevo
                                 Evento</button></a>
                     </div>
@@ -52,15 +52,15 @@
                             <td>{{App\Organizer::find($item->anfitrion)->nombre}}</td>
                             <td>{{$item->estado}}</td>
                             <td>
-                                <a href="{{URL::action('Admin\EventosController@show',$item->id)}}"><button
+                                <a href="{{URL::action('EventosClienteController@show',$item->id)}}"><button
                                         class="btn btn-info"><i class="fa fa-eye"></i></button></a>
                                 &nbsp;
 
-                                <a href="" class="profile-control-right" data-target="#message-box-danger-44"
+                                <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}"
                                     data-toggle="modal"><button class="btn btn-danger"><i
                                             class="fa fa-trash-o"></i></button></a>
                             </td>
-                            @include('contenido_admin.eventos.delete')
+                            @include('contenido_principal.cliente_eventos.delete')
                         </tr>
                         @endforeach
                     </tbody>

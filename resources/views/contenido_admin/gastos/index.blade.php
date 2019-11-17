@@ -36,18 +36,22 @@
                 <table class="table datatable">
                     <thead>
                         <tr>
-                            <th>Nombre del Abono</th>
+                            <th>Nombre del Gasto</th>
+                            <th>Monto</th>
+                            <th>Concepto</th>
                             <th>Fecha</th>
-                            <th>Trabajador</th>
+                            <th>Gastador</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($datos as $item)
                         <tr>
-                            <td>Abono Ejemplo</td>
-                            <td>2011/04/25</td>
-                            <td>Zincri Mendoza</td>
+                            <td>{{$item->nombre}}</td>
+                            <td>{{$item->monto}}</td>
+                            <td>{{$item->concepto}}</td>
+                            <td>{{$item->fecha}}</td>
+                            <td>{{$item->concepto}}</td>
                             <td>
                                     <a href="{{URL::action('Admin\GastosController@show',44)}}"><button
                                             class="btn btn-info"><i class="fa fa-eye"></i></button></a>

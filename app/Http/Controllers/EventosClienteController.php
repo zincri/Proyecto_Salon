@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Expense;
+use App\Organizer;
+use App\Event;
 
-class GastosController extends Controller
+class EventosClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class GastosController extends Controller
      */
     public function index()
     {
-        $datos = Expense::all();
-        return view("contenido_admin.gastos.index",['datos'=>$datos]);
+        $datos = Event::all();
+        return view("contenido_principal.cliente_eventos.index",['datos'=>$datos]);
+
     }
 
     /**
@@ -27,7 +28,8 @@ class GastosController extends Controller
      */
     public function create()
     {
-        return view("contenido_admin.gastos.create");
+        $combo=Organizer::all();
+        return view("contenido_principal.cliente_eventos.create",['combo'=>$combo]);
     }
 
     /**
@@ -38,7 +40,7 @@ class GastosController extends Controller
      */
     public function store(Request $request)
     {
-        return Redirect::to('administrador/gastos');
+        //
     }
 
     /**
@@ -49,7 +51,8 @@ class GastosController extends Controller
      */
     public function show($id)
     {
-        return view("contenido_admin.gastos.show");
+        $galeria = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        return view("contenido_principal.cliente_eventos.show",['galeria'=>$galeria]);
     }
 
     /**
@@ -60,8 +63,7 @@ class GastosController extends Controller
      */
     public function edit($id)
     {
-        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        return view("contenido_admin.gastos.edit",['datos'=>$datos]);
+        //
     }
 
     /**
@@ -73,7 +75,7 @@ class GastosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return Redirect::to('administrador/gastos');
+        //
     }
 
     /**
@@ -84,6 +86,6 @@ class GastosController extends Controller
      */
     public function destroy($id)
     {
-        return Redirect::to('administrador/gastos');
+        //
     }
 }
