@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\User;
 
 class UsuariosController extends Controller
 {
@@ -15,7 +16,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        $datos = User::all();
         return view("contenido_admin.usuarios.index",['datos'=>$datos]);
     }
 
@@ -39,6 +40,28 @@ class UsuariosController extends Controller
         
 
         //registrar en base de datos
+        $credentials=$this->validate(request(),[
+            'apellido_paterno' => 'required|string',
+            'apellido_materno'=>'required',
+            'edad'=>'required',
+            'rol'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'nombre'=>'required|string|max:50',
+            'email' => 'required|string|email|max:50|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $usuario = new User;
+        $usuario->name = $request->get('nombre');
+        $usuario->email = $request->get('email');
+        $usuario->password = bcrypt($request->get('password'));
+        $usuario->activo = 1;
+        $usuario->rol = $request->get('rol');
+        $usuario->apellido_paterno = $request->get('apellido_paterno');
+        $usuario->apellido_materno = $request->get('apellido_materno');
+        $usuario->edad = $request->get('edad');
+        $usuario->save();
         return Redirect::to('administrador/usuarios');
     }
 

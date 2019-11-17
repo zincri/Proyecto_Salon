@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\Expense;
 
 class GastosController extends Controller
 {
@@ -15,7 +16,7 @@ class GastosController extends Controller
      */
     public function index()
     {
-        $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        $datos = Expense::all();
         return view("contenido_admin.gastos.index",['datos'=>$datos]);
     }
 

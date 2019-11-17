@@ -21,6 +21,55 @@
                                         </div>
                                 </div>
 
+                                <div class="form-group {{$errors->has('apellido_paterno') ? 'has-error':''}}">
+                                    <label class="col-md-3 col-xs-12 control-label">Apellido Paterno</label>
+                                    <div class="col-md-6 col-xs-12">                                            
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                            <input type="text" class="form-control" name="apellido_paterno" value="{{old('apellido_paterno')}}"/>
+                                        </div>                                            
+                                        {!! $errors->first('apellido_paterno','<span class="help-block">:message</span>')!!}
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group {{$errors->has('apellido_materno') ? 'has-error':''}}">
+                                    <label class="col-md-3 col-xs-12 control-label">Apellido Materno</label>
+                                    <div class="col-md-6 col-xs-12">                                            
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                            <input type="text" class="form-control" name="apellido_materno" value="{{old('apellido_materno')}}"/>
+                                        </div>                                            
+                                        {!! $errors->first('apellido_materno','<span class="help-block">:message</span>')!!}
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group {{$errors->has('edad') ? 'has-error':''}}">
+                                    <label class="col-md-3 col-xs-12 control-label">Edad</label>
+                                    <div class="col-md-6 col-xs-12">                                            
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                            <input type="text" class="form-control" name="edad" value="{{old('edad')}}"/>
+                                        </div>                                            
+                                        {!! $errors->first('edad','<span class="help-block">:message</span>')!!}
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group {{$errors->has('rol') ? 'has-error':''}}">
+                                    <label class="col-md-3 col-xs-12 control-label">Rol del Usuario</label>
+                                    <div class="col-md-6 col-xs-12">                                                                                            
+                                        <select class="form-control" name="rol">
+                                        <option value=""> SELECCIONA UN ROL </option>
+                                        <option value="client">Cliente</option>
+                                        <option value="employee">Empleado</option>
+                                        <option value="manager">Gerente</option>
+                                        </select>
+                                        {!! $errors->first('rol','<span class="help-block">:message</span>')!!}
+                                    </div>
+                                </div>
+
                                 <div class="form-group {{$errors->has('email') ? 'has-error':''}}">
                                         <label class="col-md-3 col-xs-12 control-label">Email</label>
                                         <div class="col-md-6 col-xs-12">                                            
