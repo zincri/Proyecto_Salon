@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Redirect;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -45,7 +46,9 @@ class LoginController extends Controller
         ]);
         $email = $request->get('email');
         $password = $request->get('password');
-        if($email == "zincri@gmail.com" && $password == "123456" || $email == "jhoana@gmail.com" && $password == "123456"){
+
+
+        if(User::where('email', '=', $email)->first()){
             return Redirect::to('administrador/dashboard');
         }
         elseif($email == "empleado@gmail.com" && $password == "123456"){
