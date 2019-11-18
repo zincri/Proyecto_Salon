@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +18,7 @@ Route::get('/', function () {
 /** JHOANA DOMINGUEZ**/
 
 /** Usuario*/
+
 Route::get('usuario/paquete','Admin\PaquetesController@index3');
 
 Route::get('usuario/galeria', function () {
@@ -29,9 +30,7 @@ Route::get('usuario/contacto', function () {
     return view('contenido_usuario.contacto');
 });
 
-Route::get('login', function () {
-    return view('auth.login');
-});
+
 /** Cliente*/
 
 Route::get('/', function () {
@@ -64,10 +63,12 @@ Route::get('eventos', function () {
 /** ZINCRI MENDOZA**/
 
 Route::get('/administrador/dashboard', function () {
-    return view('contenido_admin.dashboard.dashboard_gerente');
+    $datos_usuario = Session::get('usuario_session');
+    return view('contenido_admin.dashboard.dashboard_gerente',['datos_usuario'=>$datos_usuario]);
 });
 Route::get('/administrador/empleado', function () {
-    return view('contenido_admin.dashboard.dashboard_empleado');
+    $datos_usuario = Session::get('usuario_session');
+    return view('contenido_admin.dashboard.dashboard_empleado',['datos_usuario'=>$datos_usuario]);
 });
 
 Route::resource('/administrador/eventos','Admin\EventosController');
@@ -76,16 +77,37 @@ Route::resource('/administrador/paquetes','Admin\PaquetesController');
 Route::resource('/administrador/usuarios','Admin\UsuariosController');
 Route::resource('/administrador/abonos','Admin\AbonosController');
 Route::resource('/administrador/gastos','Admin\GastosController');
+Route::get('administrador/resetpass','Admin\UsuariosController@resetpass')->name('resetpass');
+Route::post('administrador/resetpass','Admin\UsuariosController@saveresetpass')->name('resetpass');
 
 Route::resource('/administrador/e/abonos','Admin\Employee\AbonosController');
 Route::resource('/administrador/e/eventos','Admin\Employee\EventosController');
 
+
+
+/* LOGIN DE LARAVEL IMPLEMENTADO */
 Route::get('/login', function () {
+    if(Auth::check()){
+        if (Auth::user()->rol == "manager"){
+            return redirect('administrador/dashboard');
+        }
+        elseif(Auth::user()->rol == "employee"){
+            return redirect('administrador/empleado');
+        }
+        elseif(Auth::user()->rol == "client"){
+            return redirect('sesion');
+        }
+    }
     return view('auth.login');
 })->name('login');
 Route::post('/login','Auth\LoginController@login')->name('login');
-Route::get('/logout','Auth\LoginController@logout')->name('logout');
+Route::post('/logout','Auth\LoginController@logout')->name('logout');
+
+/* LOGIN DE LARAVEL IMPLEMENTADO */
 
 /** ZINCRI MENDOZA**/
 
 Route::resource('clientes/eventos','EventosClienteController');
+
+
+//Route::get('/home', 'HomeController@index')->name('home');

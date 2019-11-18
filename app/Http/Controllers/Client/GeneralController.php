@@ -13,7 +13,7 @@ class GeneralController extends Controller
      */
     public function index()
     {
-        $datos = ;
+        //$datos = ;
         return view("contenido_principal.paquetes",['datos'=>$datos]);
     }
 

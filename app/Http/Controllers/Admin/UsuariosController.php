@@ -6,9 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+
+//use Illuminate\Foundation\Auth\AuthenticatesUsers;
+//use Illuminate\Support\Facades\Auth;
 
 class UsuariosController extends Controller
 {
+
+    //use AuthenticatesUsers;
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -111,7 +124,6 @@ class UsuariosController extends Controller
         $usuario = User::findOrFail($id);
         $usuario->name = $request->get('nombre');
         $usuario->email = $request->get('email');
-        $usuario->password = bcrypt($request->get('password'));
         $usuario->activo = 1;
         $usuario->rol = $request->get('rol');
         $usuario->apellido_paterno = $request->get('apellido_paterno');
@@ -138,4 +150,31 @@ class UsuariosController extends Controller
         $usuario->update();
         return Redirect::to('administrador/usuarios');
     }
+
+    public function resetpass()
+    {
+        return view("contenido_admin.usuarios.resetear_pass");
+    }
+    public function saveresetpass(Request $request)
+    {
+        $credentials=$this->validate(request(),[
+            'password' => 'required|string|min:6|confirmed',
+            'passwordold' => 'required|string|min:6',
+        ]);
+        $new = $request->get('password');
+        $old = $request->get('passwordold');
+        $usuario = Auth::user();
+        if(Hash::check($old, $usuario->password)){
+            $usuario_db = User::findOrFail($usuario->id);
+            $usuario_db->password = bcrypt($new);
+            $usuario_db->update();
+            return Redirect::to('administrador/dashboard');
+
+        }
+        else{
+            return back()->withErrors(['passwordold'=> trans('La contraseña no es correcta, debe ingresar la contraseña actual antes de cambiarla.')]);
+        }
+        
+    }
+
 }
