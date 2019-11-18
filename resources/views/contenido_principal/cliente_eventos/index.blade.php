@@ -39,9 +39,10 @@
                         <tr>
                             <th>Nombre del Evento</th>
                             <th>Fecha</th>
-                            <th>Alfitrion</th>
+                            <th>Hora</th>
+                            <th>Descripción</th>
+                            <th>Número de invitados</th>
                             <th>Estado</th>
-                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,7 +50,7 @@
                         <tr>
                         <td>{{$item->nombre}}</td>
                             <td>{{$item->fecha}}</td>
-                            <td>{{App\Organizer::find($item->anfitrion)->nombre}}</td>
+                            <td></td>
                             <td>{{$item->estado}}</td>
                             <td>
                                 <a href="{{URL::action('EventosClienteController@show',$item->id)}}"><button

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\Package;
+use App\Event;
 
 class GeneralController extends Controller
 {
@@ -13,13 +17,13 @@ class GeneralController extends Controller
      */
     public function index()
     {
-        $datos = ;
+       $datos = Package::all();
         return view("contenido_principal.paquetes",['datos'=>$datos]);
     }
 
-    public function index3()
+    public function index2()
     {
-        $datos = array("images/j_img3.jpg", "images/j_img4.jpg", "images/j_img5.jpg");
+        $datos = Package::all();
         return view("contenido_usuario.paquetes",['datos'=>$datos]);
     }
 
@@ -30,7 +34,8 @@ class GeneralController extends Controller
      */
     public function create()
     {
-        //
+        return 'lll';
+       // view("contenido_principal.form_createEvent");
     }
 
     /**
@@ -41,8 +46,29 @@ class GeneralController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $credentials=$this->validate(request(),[
+            'nombre' => 'required|string',
+            'descripcion'=>'required',
+            'numero_invitados'=>'required',
+            'hora'=>'required',
+            'fecha'=>'required',
+            'paquete_id'=>'required',
+        ]);
+
+        $evento = new Event;
+        $evento->nombre = $request->get('nombre');
+        $evento->descripcion = $request->get('descripcion');
+        $evento->numero_invitados = $request->get('numero_invitados');
+        $evento->confirmado = 0;
+        $evento->hora = $request->get('hora');
+        $evento->fecha = $request->get('fecha');
+        $evento->paquete_id = $request->get('paquete_id');
+        $evento->save();
+        return  Redirect::to('paquete');
+        
     }
+
 
     /**
      * Display the specified resource.
@@ -52,7 +78,8 @@ class GeneralController extends Controller
      */
     public function show($id)
     {
-        //
+        $datos =Package::find($id);
+        return view("contenido_principal.form_createEvent",['datos'=>$datos]);
     }
 
     /**

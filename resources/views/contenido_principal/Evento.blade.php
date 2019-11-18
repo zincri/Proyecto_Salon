@@ -19,7 +19,7 @@
     </div>
 </header>
 <div class="container" style="margin-top:25px;">
-    <form action="http://demo.themeburn.com/kiddos/1/checkout/cart/edit" method="post" enctype="multipart/form-data"
+    <form action="" method="post" enctype="multipart/form-data"
         id="cart_form">
         <div class="cart-info tb_min_w_500">
             <table class="table">

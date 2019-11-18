@@ -60,7 +60,7 @@
 						<li class="active"><a href="{{url ('sesion')}}">Home</a></li>
 							<li><a href="{{ url ('paquete') }}">Paquetes</a></li>
 							<li>
-								<a href="{{ url ('galeria') }}">Eventos</a>
+								<a href="{{ url ('eventos') }}">Eventos</a>
 							</li>
 							<li><a href="contacto">Contacto</a></li>	
 							<li><a class="glyphicon glyphicon-shopping-cart" href="eventos"></a></li>

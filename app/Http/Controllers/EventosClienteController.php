@@ -16,7 +16,7 @@ class EventosClienteController extends Controller
      */
     public function index()
     {
-        $datos = Event::all();
+        $datos = Event::where('activo', '=', '1')->get();
         return view("contenido_principal.cliente_eventos.index",['datos'=>$datos]);
 
     }
