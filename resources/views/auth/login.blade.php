@@ -27,13 +27,13 @@
                             @csrf
                             <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
                                 <div class="col-md-12">
-                                    <input type="text" id="email" name="email" class="form-control" placeholder="E-mail"/>
+                                <input type="text" id="email" name="email" class="form-control" placeholder="E-mail" value="{{old('email')}}"/>
                                     {!! $errors->first('email','<span class="help-block">:message</span>')!!}
                                 </div>
                             </div>
                             <div class="form-group {{$errors->has('password') ? 'has-error' : ''}}">
                                 <div class="col-md-12">
-                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" value="{{old('password')}}"/>
                                     {!! $errors->first('password','<span class="help-block">:message</span>')!!}
                                 </div>
                             </div>
@@ -61,9 +61,4 @@
         
     </body>
 </html>
-
-
-
-
-
 

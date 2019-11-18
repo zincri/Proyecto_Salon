@@ -23,24 +23,24 @@
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
-                        <a href="index.html">ADMINISTRADOR</a>
+                        <a href="administrador/">ADMINISTRADOR</a>
                         <a href="#" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-profile">
                         <a href="#" class="profile-mini">
-                            <img src="assets/images/users/avatar.jpg" alt="Gerente"/>
+                            <img src="{{asset('assets/images/users/avatar.jpg')}}" alt="Gerente"/>
                         </a>
                         <div class="profile">
                             <div class="profile-image">
                                 <img src="{{asset('assets/images/users/avatar.jpg')}}" alt="Gerente"/>
                             </div>
                             <div class="profile-data">
-                                <div class="profile-data-name">Zincri Mendoza</div>
+                                <div class="profile-data-name">{{Auth::user()->name}}</div>
                                 <div class="profile-data-title">Gerente</div>
                             </div>
                             <div class="profile-controls">
-                                <a href="" class="profile-control-left"><span class="fa fa-info"></span></a>
-                                <a href="" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                                <a href="{{ URL::action('Admin\UsuariosController@edit',Auth::user()->id)}}" class="profile-control-left"><span class="fa fa-edit"></span></a>
+                                <a href="{{ url('administrador/resetpass') }}" class="profile-control-right"><span class="fa fa-cog"></span></a>
                             </div>
                         </div>                                                                        
                     </li>
@@ -221,7 +221,13 @@
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="{{ route('logout') }}" class="btn btn-success btn-lg">Yes</a>
+                            <a href="{{ route('logout') }}" 
+                            class="btn btn-success btn-lg"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Yes</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                             <button class="btn btn-default btn-lg mb-control-close">No</button>
                         </div>
                     </div>

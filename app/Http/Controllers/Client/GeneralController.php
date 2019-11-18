@@ -18,6 +18,7 @@ class GeneralController extends Controller
     public function index()
     {
        $datos = Package::all();
+
         return view("contenido_principal.paquetes",['datos'=>$datos]);
     }
 
