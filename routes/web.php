@@ -18,8 +18,8 @@ Route::get('/', function () {
 /** JHOANA DOMINGUEZ**/
 
 /** Usuario*/
+Route::get('usuario/paquete','Client\GeneralController@index2');
 
-Route::get('usuario/paquete','Admin\PaquetesController@index3');
 
 Route::get('usuario/galeria', function () {
     $dato = array("images/j_img14.jpg","images/j_img15.jpg","images/j_img16.jpg");
@@ -40,22 +40,15 @@ Route::get('/', function () {
 Route::get('sesion', function () {
     return view('contenido_principal.inicio');
 });
-Route::get('paquete', 'Admin\PaquetesController@index2');
-Route::resource('galeria', 'Client\GaleriaController');
-
-Route::get('formC', function () {
-    return view('contenido_principal.form_createEvent');
-});
+Route::resource('paquete', 'Client\GeneralController');
+Route::resource('formC', 'Client\GeneralController');
 
 Route::get('contacto', function () {
     return view('contenido_principal.contacto');
 });
 
-Route::get('eventos', function () {
-    return view('contenido_principal.Evento');
-});
 
-
+Route::resource('eventos','EventosClienteController');
 
 
 /** JHOANA DOMINGUEZ**/
@@ -109,5 +102,3 @@ Route::post('/logout','Auth\LoginController@logout')->name('logout');
 
 Route::resource('clientes/eventos','EventosClienteController');
 
-
-//Route::get('/home', 'HomeController@index')->name('home');

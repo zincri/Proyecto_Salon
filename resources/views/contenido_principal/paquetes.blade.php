@@ -35,17 +35,15 @@
                 
             <div class="col-12 col-xl-12 col-sm-6 col-md-4">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                <img src="{{ asset ($item) }}" alt="">
+                <img src="{{ asset ($item->foto_principal) }}" alt="">
                     <div class="dish-info">
                         <h6 class="dish-name">
                             <ul>
-                                <li>Platillo:Medallones de pollo</li>
-                                <li>Musica:Conjunto Completo</li>
-                                <li>Mesa de Dulces</li>
-                                <li>BebidasCervezas y refrescoss</li>
+                            {{$item->descripcion}}
+                            <li>{{$item->precio}}</li>
                             </ul>
                         </h6>
-                    <p class="dish-price"><a href="{{ url ('formC')}}">Crear</a></p>
+                    <p class="dish-price"><a href="{{ URL::action('Client\GeneralController@show',$item->id)}}">Crear</a></p>
                     </div>
                 </div>
             </div> 
