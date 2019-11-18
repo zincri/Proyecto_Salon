@@ -13,6 +13,12 @@ class PaquetesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);

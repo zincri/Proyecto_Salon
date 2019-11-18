@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;  //ESTO HE FUNCIONE EL LOGOUT
 use Illuminate\Support\Facades\Redirect;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -21,14 +22,14 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers; //ESTO HE FUNCIONE EL LOGOUT
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/administrador/dashboard';
 
     /**
      * Create a new controller instance.
@@ -47,11 +48,9 @@ class LoginController extends Controller
         ]);
         $email = $request->get('email');
         $password = $request->get('password');
-
-
-        if(User::where('email', '=', $email)->first()){
-            $usuario=User::where('email', '=', $email)->first();
             
+        if(Auth::attempt($credentials)){
+            $usuario=User::where('email', '=', $email)->first();
             if (Hash::check($password, $usuario->password)){
                     if ($usuario->rol == "manager"){
                         return Redirect::to('administrador/dashboard');
@@ -71,10 +70,12 @@ class LoginController extends Controller
         else{
             return back()->withErrors(['email'=> trans('Este usuario no existe')]);
         }
+        
     }
-
-    public function logout(){
+    /*
+    public function logout(){ //no lo estoy usando, estoy usando el de laravel
         return Redirect::to('login');
     }
+    */
 
 }
