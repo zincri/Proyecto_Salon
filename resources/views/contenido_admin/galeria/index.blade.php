@@ -5,6 +5,20 @@
 <div class="page-title">                    
     <h2><span class="fa fa-arrow-circle-o-left"></span> Listado de Abonos</h2>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-4" style="float: right;">
+                    <a href="{{ url('administrador/uploadnewimage/'.$id.'')}}"><button
+                            class="btn btn-success btn-block"><span class="fa fa-plus"></span> Agregar
+                            Foto</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- END PAGE TITLE -->   
 <div class="row">
     <div class="col-md-12">

@@ -1,7 +1,7 @@
 @extends ('layouts.master_admin')
 
 @section ('content')
-{!!Form::open(array('action'=>['Admin\AbonosController@update',$id],'method'=>'PATCH','autocomplete'=>'off',
+{!!Form::open(array('url'=>['administrador/uploadnewimage/'.$id.''],'method'=>'POST','autocomplete'=>'off',
 'files' => 'true'))!!}
 {{Form::token()}}
 
@@ -11,26 +11,16 @@
 
         <div class="panel-body">
 
-             <div class="form-group {{$errors->has('fecha') ? 'has-error':''}}">                                        
-                <label class="col-md-3 col-xs-12 control-label">Fecha</label>
-                <div class="col-md-6 col-xs-12">
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                        <input type="text" class="form-control datepicker" name="fecha" value="{{old('fecha')}}">                                            
-                    </div>
-                    {!! $errors->first('fecha','<span class="help-block">:message</span>')!!}
-                </div>
-            </div>
+            <div class="form-group {{$errors->has('file') ? 'has-error':''}}">
 
-            <div class="form-group {{$errors->has('monto') ? 'has-error':''}}">
-                <label class="col-md-3 col-xs-12 control-label">Monto del abono</label>
-                <div class="col-md-6 col-xs-12">
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                        <input type="text" class="form-control" name="monto" value="{{old('monto')}}" />
-                    </div>
-                    {!! $errors->first('monto','<span class="help-block">:message</span>')!!}
-
+                <label class="col-md-3 col-xs-12 control-label">Sube aqui la imagen:</label>
+                <div class="col-md-6 col-xs-12">                               
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="file"  name="file" id="file"  class="file" accept="image/*" data-preview-file-type="any"/>
+                                {!! $errors->first('file','<span class="help-block">:message</span>')!!}
+                            </div>
+                        </div>                                                            
                 </div>
             </div>
 

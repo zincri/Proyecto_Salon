@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Session;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
 /** JHOANA DOMINGUEZ**/
 
 /** Usuario*/
@@ -63,6 +58,9 @@ Route::get('administrador/resetpassuser/{id}','Admin\UsuariosController@resetpas
 Route::post('administrador/resetpassuser/{id}','Admin\UsuariosController@saveresetpassuser')->name('resetpassuser');
 Route::get('administrador/uploadimage/{id}','Admin\GaleriaController@index')->name('uploadimage');
 Route::post('administrador/destroyimage/{id}','Admin\GaleriaController@destroy')->name('destroyimage');
+
+Route::get('administrador/uploadnewimage/{id}','Admin\GaleriaController@create')->name('uploadnewimage');
+Route::post('administrador/uploadnewimage/{id}','Admin\GaleriaController@store')->name('uploadnewimage');
 
 Route::resource('/administrador/e/abonos','Admin\Employee\AbonosController');
 Route::resource('/administrador/e/eventos','Admin\Employee\EventosController');
