@@ -49,7 +49,7 @@ class LoginController extends Controller
         $email = $request->get('email');
         $password = $request->get('password');
             
-        if(Auth::attempt($credentials)){
+        if(Auth::attempt($credentials)){//Si no se ejecuta esta linea el loggeo no se guarda
             $usuario=User::where('email', '=', $email)->first();
             if (Hash::check($password, $usuario->password)){
                     if ($usuario->rol == "manager"){
@@ -68,7 +68,7 @@ class LoginController extends Controller
         
         }
         else{
-            return back()->withErrors(['email'=> trans('Este usuario no existe')]);
+            return back()->withErrors(['email'=> trans('Verifica tus datos')]);
         }
         
     }

@@ -65,7 +65,8 @@
                 <div class="panel-body">                                    
                     <div class="contact-info">
                         <p><small>Telefono</small><br/>{{$item->telefono}}</p>
-                        <p><small>Email</small><br/>{{$item->email}}</p>                                 
+                        <p><small>Email</small><br/>{{$item->email}}</p>    
+                        <a href="{{ url('administrador/resetpassuser/'.$item->id.'')}}"><p><small>Restablecer contraseña</small><br/></p></a>   
                     </div>
                 </div>                                
             </div>

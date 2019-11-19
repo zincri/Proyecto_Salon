@@ -12,6 +12,7 @@
         
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" type="text/css" id="theme" href="{{asset('css/theme-white.css')}}"/>
+        
         <!-- EOF CSS INCLUDE -->                                    
     </head>
     <body>
@@ -261,7 +262,10 @@
         <script type='text/javascript' src="{{ asset('js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
         <script type='text/javascript' src="{{ asset('js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>                
         <script type='text/javascript' src="{{ asset('js/plugins/bootstrap/bootstrap-datepicker.js')}}"></script>                
-        <script type="text/javascript" src="{{ asset('js/plugins/owl/owl.carousel.min.js')}}"></script>                 
+        <script type="text/javascript" src="{{ asset('js/plugins/owl/owl.carousel.min.js')}}"></script> 
+        <script type="text/javascript" src="{{ asset('js/plugins/bootstrap/bootstrap-file-input.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/plugins/bootstrap/bootstrap-select.js')}}"></script>
+                        
         
         <script type="text/javascript" src="{{ asset('js/plugins/moment.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('js/plugins/daterangepicker/daterangepicker.js')}}"></script>
