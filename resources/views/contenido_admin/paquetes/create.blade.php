@@ -55,7 +55,7 @@
                                         <div class="col-md-6 col-xs-12">                               
                                                 <div class="form-group">
                                                     <div class="col-md-12">
-                                                        <input type="file"  name="file2" id="file2"  class="file2" accept="image/*" data-preview-file-type="any"/>
+                                                        <input type="file"  name="file2" id="file2"  class="file" accept="image/*" data-preview-file-type="any"/>
                                                         {!! $errors->first('file2','<span class="help-block">:message</span>')!!}
                                                     </div>
                                                 </div>                                                            

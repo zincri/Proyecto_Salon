@@ -38,29 +38,42 @@
                         <thead>
                             <tr>
                                 <th>Nombre del Paquete</th>
-                                <th>Fecha</th>
-                                <th>Selecciones</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($datos as $item)
                             <tr>
-                                <td>nombre</td>
-                                <td>2011/04/25</td>
-                                <td>20</td>
+                                <td>{{$item->nombre}}</td>
+                                <td>{{$item->descripcion}}</td>
+                                <td>{{$item->precio}}</td>
+                                @if ($item->activo == 1)
+                                    <td>Activo</td>
+                                @else
+                                    <td>Inactivo</td>
+                                @endif
                                 <td>
-                                    <a href="{{URL::action('Admin\PaquetesController@show',44)}}"><button
+                                    <a href="{{URL::action('Admin\PaquetesController@show',$item->id)}}"><button
                                             class="btn btn-info"><i class="fa fa-eye"></i></button></a>
                                     &nbsp;
-                                    <a href="{{URL::action('Admin\PaquetesController@edit',44)}}"><button
+                                    @if ($item->activo == 1)
+                                        <a href="{{URL::action('Admin\PaquetesController@edit',$item->id)}}"><button
                                             class="btn btn-warning"><i class="fa fa-edit"></i></button></a>
-                                    &nbsp;
-                                    <a href="" class="profile-control-right" data-target="#message-box-danger-44"
-                                        data-toggle="modal"><button class="btn btn-danger"><i
-                                                class="fa fa-trash-o"></i></button></a>
+                                        &nbsp;
+                                    @endif
+                                    @if ($item->activo == 1)
+                                        <a href="{{URL::action('Admin\PaquetesController@destroy',$item->id)}}" 
+                                            class="profile-control-right" data-target="#message-box-danger-{{$item->id}}"
+                                            data-toggle="modal"><button class="btn btn-danger"><i
+                                                class="fa fa-trash-o"></i></button>
+                                        </a>
+                                        @include('contenido_admin.paquetes.delete')
+                                    @endif         
                                 </td>
-                                @include('contenido_admin.paquetes.delete')
+                                
                             </tr>
                             @endforeach
                         </tbody>
