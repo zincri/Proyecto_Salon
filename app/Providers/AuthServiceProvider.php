@@ -6,6 +6,8 @@ use App\Event;
 use App\Gallery;
 use App\Policies\EventPolicy;
 use App\Policies\GalleryPolicy;
+use App\Policies\PackagePolicy;
+use App\Policies\PayPolicy;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -21,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
         Event::class => EventPolicy::class,
         Gallery::class => GalleryPolicy::class,
+        Pay::class => PayPolicy::class,
     ];
 
     /**

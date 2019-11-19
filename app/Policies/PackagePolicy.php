@@ -3,10 +3,9 @@
 namespace App\Policies;
 
 use App\User;
-use App\Gallery;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class GalleryPolicy
+class PackagePolicy
 {
     use HandlesAuthorization;
 
@@ -19,9 +18,16 @@ class GalleryPolicy
     {
         //
     }
-
-    public function pass(User $user, Gallery $gallery)
+    public function pass(User $user)
     {
-        return $user->id == $gallery->usuario_id;
+      if($user->rol == 'manager')
+      {
+        $dato= true;
+      }
+      else{
+        $dato= false;
+      }
+
+      return $dato;
     }
 }

@@ -15,6 +15,7 @@ class AbonosController extends Controller
      */
     public function index()
     {
+        $this->authorize('pass');
         $datos = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
         return view("contenido_admin.abonos_empleado.index",['datos'=>$datos]);
     }
