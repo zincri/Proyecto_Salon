@@ -10,11 +10,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="col-md-4" style="float: right;">
-                        <a href="{{ URL::action('Admin\EventosController@create')}}"><button
-                                class="btn btn-success btn-block"><span class="fa fa-plus"></span> Nuevo
-                                Evento</button></a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -39,7 +35,7 @@
                         <tr>
                             <th>Nombre del Evento</th>
                             <th>Fecha</th>
-                            <th>Alfitrion</th>
+                            <th>Cliente</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
@@ -47,20 +43,29 @@
                     <tbody>
                         @foreach ($datos as $item)
                         <tr>
-                        <td>{{$item->nombre}}</td>
+                            <td>{{$item->nombre}}</td>
                             <td>{{$item->fecha}}</td>
-                            <td>{{App\Organizer::find($item->anfitrion)->nombre}}</td>
-                            <td>{{$item->estado}}</td>
+                            <td>{{App\User::find($item->cliente_id)->name}}</td>
+                            @if ($item->confirmado == 1)
+                                <td>Confirmado</td>
+                            @else
+                                <td>No Confirmado</td>
+                            @endif
+
                             <td>
                                 <a href="{{URL::action('Admin\EventosController@show',$item->id)}}"><button
                                         class="btn btn-info"><i class="fa fa-eye"></i></button></a>
                                 &nbsp;
 
-                                <a href="" class="profile-control-right" data-target="#message-box-danger-44"
-                                    data-toggle="modal"><button class="btn btn-danger"><i
-                                            class="fa fa-trash-o"></i></button></a>
+                                <a href="{{ url('administrador/uploadimage/'.$item->id.'')}}"><button
+                                    class="btn btn-warning"><i class="fa fa-image"></i></button></a>
+                                &nbsp;
+                                
+                                <a href="{{ URL::action('Admin\AbonosController@edit',$item->id)}}"><button
+                                    class="btn btn-success"><i class="fa fa-money"></i></button></a>
+                                &nbsp;
                             </td>
-                            @include('contenido_admin.eventos.delete')
+                            
                         </tr>
                         @endforeach
                     </tbody>

@@ -9,12 +9,12 @@
         <strong>Warning!</strong>Ocurrio un error, intentelo nuevamente por favor!
     </div>
     ')!!}
-    <h2>Evento Ejemplo</h2>
+    <h2>{{$datos->nombre}}</h2>
     <hr>
     <div class="gallery" id="links">
-        <a class="gallery-item" href="{{asset('img/eventos/evento.jpg')}}" title="Imagen" data-gallery>
+        <a class="gallery-item" href="{{$datos->url_imagen_principal}}" title="Imagen" data-gallery>
             <div class="image">
-                <img src="{{asset('img/eventos/evento.jpg')}}" alt="Imagen" />
+                <img src="{{$datos->url_imagen_principal}}" alt="Imagen" />
                 <ul class="gallery-item-controls">
                     <li><label class="check"><input type="checkbox" class="icheckbox" /></label></li>
                     <li><span class="gallery-item-remove"><i class="fa fa-times"></i></span></li>
@@ -32,7 +32,7 @@
                     <h3 class="panel-title"><strong>Descripcion:</strong> </h3>
                 </div>
                 <div class="panel-body">
-                    <p>Descripcion del evento.</p>
+                    <p>{{$datos->descripcion}}</p>
 
                 </div>
             </div>
@@ -45,8 +45,11 @@
                     <h3 class="panel-title"><strong>Estado del evento: </strong> </h3>
                 </div>
                 <div class="panel-body">
-                    <p>Confirmado</p>
-
+                    @if ($datos->confirmado == 1)
+                        <p>Confirmado</p>
+                    @else
+                        <p>No Confirmado</p>
+                    @endif
                 </div>
             </div>
             <div>
@@ -54,7 +57,7 @@
                     <h3 class="panel-title"><strong>Invitados:</strong> </h3>
                 </div>
                 <div class="panel-body">
-                    <p>488 asistieron</p>
+                    <p>{{$datos->numero_invitados}} asistieron</p>
 
                 </div>
             </div>
@@ -68,9 +71,9 @@
             <h3>GALERIA DEL EVENTO:</h3>
         <div class="gallery" id="links">
             @foreach($galeria as $item)
-            <a class="gallery-item" href="{{asset('img/eventos/evento.jpg')}}" title="Imagen" data-gallery>
+            <a class="gallery-item" href="{{$item->url}}" title="Imagen" data-gallery>
                 <div class="image">
-                    <img src="{{asset('img/eventos/evento.jpg')}}" alt="Imagen" />
+                    <img src="{{$item->url}}" alt="Imagen" />
                     <ul class="gallery-item-controls">
                         <li><label class="check"><input type="checkbox" class="icheckbox" /></label></li>
                         <li><span class="gallery-item-remove"><i class="fa fa-times"></i></span></li>
@@ -86,8 +89,11 @@
 
 
     <div class="panel-footer">
-        <a href="{{URL::action('Admin\EventosController@edit',44)}}"><button
-                class="btn btn-primary pull-right">Confirmar Evento</button></a>
+        @if ($datos->confirmado == 0)
+        <a href="{{URL::action('Admin\EventosController@edit',$datos->id)}}"><button
+            class="btn btn-primary pull-right">Confirmar Evento</button></a>    
+        @endif
+        
     </div>
     <br>
     @endsection

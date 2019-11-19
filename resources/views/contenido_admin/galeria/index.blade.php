@@ -12,34 +12,39 @@
         <!-- START DEFAULT DATATABLE -->
         <div class="panel panel-default">
             <div class="panel-heading">                                
-                <h3 class="panel-title">Abonos</h3>
+                <h3 class="panel-title">Galeria</h3>
                 <ul class="panel-controls">
                     <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                     <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
                     <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
                 </ul>                                
             </div>
+            {!! $errors->first('erroregistro','
+            <div class="alert alert-danger">
+                <strong>No se puede eliminar, no eres el propietario de la imagen!</strong>
+            </div>
+            ')!!}
             <div class="panel-body">
                 <table class="table datatable">
                     <thead>
                         <tr>
-                            <th>Nombre del Evento del que pertenece el Abono</th>
-                            <th>Fecha</th>
-                            <th>Monto</th>
-                            <th>Receptor</th>
+                            <th>Imagen</th>
+                            <th>Quien subió</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($datos as $item)
                         <tr>
-                            <td>{{App\Event::find($item->evento_id)->nombre}}</td>
-                            <td>{{$item->fecha}}</td>
-                            <td>{{$item->monto}}</td>
-                            <td>{{App\User::find($item->receptor_id)->name}}</td>
                             <td>
-                                Sin acciones
+                                <img src="{{$item->url}}" alt="imagen" height="42" width="42">
                             </td>
+                            <td>{{App\User::find($item->usuario_id)->name}}</td>
+                            <td>
+                                <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}" data-toggle="modal"><button
+                                    class="btn btn-danger"><i class="fa fa-trash-o"></i></button></a>
+                            </td>
+                            @include('contenido_admin.galeria.delete')
                         </tr>
                         @endforeach
                     </tbody>

@@ -5,26 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Pay;
 use Illuminate\Support\Facades\Auth;
+use App\Gallery;
 
-class AbonosController extends Controller
+class GaleriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    public function index($id)
     {
-        $this->middleware('auth');
-    }
-
-
-    public function index()
-    {
-        $datos = Pay::all();
-        return view("contenido_admin.abonos.index",['datos'=>$datos]);
+        $datos = Gallery::where('activo','=','1')->where('evento_id','=',$id)->get();
+        return view('contenido_admin.galeria.index',['datos'=>$datos,'id'=>$id]);
     }
 
     /**
@@ -56,8 +50,7 @@ class AbonosController extends Controller
      */
     public function show($id)
     {
-        
-
+        //
     }
 
     /**
@@ -68,7 +61,7 @@ class AbonosController extends Controller
      */
     public function edit($id)
     {
-        return view("contenido_admin.abonos.create",['id'=>$id]);
+        //
     }
 
     /**
@@ -80,18 +73,7 @@ class AbonosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $credentials=$this->validate(request(),[
-            'monto'=>'required|string|max:10',
-            'fecha'=>'required',
-        ]);
-        $pay = new Pay;
-        $pay->receptor_id = Auth::user()->id;
-        $pay->evento_id = $id;
-        $pay->monto = $request->monto;
-        $pay->fecha = $request->fecha;
-        $pay->activo = 1;
-        $pay->save();
-        return Redirect::to('administrador/abonos');
+        //
     }
 
     /**
@@ -102,6 +84,14 @@ class AbonosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image=Gallery::find($id);
+        if(Auth::user()->id==$image->usuario_id){
+            $image->activo = 0;
+            $image->update();
+            return Redirect::to('administrador/eventos');
+        }
+        else{
+            return back()->withErrors(['erroregistro'=> trans('Error.')]);
+        }
     }
 }
