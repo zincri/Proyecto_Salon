@@ -42,4 +42,19 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Expense',"gastador_id");
     }
+
+    public function hired()
+    {
+        return $this->hasMany('App\Event',"contratador_id");
+    }
+
+    public function events()
+    {
+        return $this->hasMany('App\Event',"cliente_id");
+    }
+    public function pays()
+    {
+        return $this->hasMany('App\Pay', 'receptor_id');
+    }
+
 }

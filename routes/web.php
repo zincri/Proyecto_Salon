@@ -61,7 +61,8 @@ Route::get('administrador/resetpass','Admin\UsuariosController@resetpass')->name
 Route::post('administrador/resetpass','Admin\UsuariosController@saveresetpass')->name('resetpass');
 Route::get('administrador/resetpassuser/{id}','Admin\UsuariosController@resetpassuser')->name('resetpassuser');
 Route::post('administrador/resetpassuser/{id}','Admin\UsuariosController@saveresetpassuser')->name('resetpassuser');
-
+Route::get('administrador/uploadimage/{id}','Admin\GaleriaController@index')->name('uploadimage');
+Route::post('administrador/destroyimage/{id}','Admin\GaleriaController@destroy')->name('destroyimage');
 
 Route::resource('/administrador/e/abonos','Admin\Employee\AbonosController');
 Route::resource('/administrador/e/eventos','Admin\Employee\EventosController');

@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Organizer;
 use App\Event;
+use App\Gallery;
+use App\Package;
+use Illuminate\Support\Facades\Auth;
 
 class EventosController extends Controller
 {
@@ -24,9 +27,8 @@ class EventosController extends Controller
     
     public function index()
     {
-        $datos = Event::all();
+        $datos = Event::where('activo','=','1')->get();
         return view("contenido_admin.eventos.index",['datos'=>$datos]);
-        
     }
 
     /**
@@ -36,10 +38,13 @@ class EventosController extends Controller
      */
     public function create()
     {
-        $combo=Organizer::all();
-        return view("contenido_admin.eventos.create",['combo'=>$combo]);
     }
-
+    /*
+    public function crearabono($id)
+    {
+        return "entro";
+    }
+*/
     /**
      * Store a newly created resource in storage.
      *
@@ -82,8 +87,10 @@ class EventosController extends Controller
      */
     public function show($id)
     {
-        $galeria = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        return view("contenido_admin.eventos.show",['galeria'=>$galeria]);
+        $datos = Event::find($id);
+        $galeria = Gallery::where('activo','=','1')->where('evento_id','=',$id)->get();
+        
+        return view("contenido_admin.eventos.show",['datos'=>$datos,'galeria'=>$galeria]);
     }
 
     /**
@@ -94,7 +101,10 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
-        return Redirect::to('administrador/eventos');
+        $datos = Event::find($id);
+        $paquete = Package::find($datos->paquete_id);
+       
+        return view('contenido_admin.eventos.edit',['id'=>$id,'paquete'=>$paquete]);
     }
 
     /**
@@ -106,7 +116,15 @@ class EventosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $credentials=$this->validate(request(),[
+            'precio'=>'required|string|max:10',
+        ]);
+        $event = Event::findOrFail($id);
+        $event->confirmado = 1;
+        $event->precio = $request->precio;
+        $event->contratador_id = Auth::user()->id;
+        $event->update();
+        return Redirect::to('administrador/eventos');
     }
 
     /**
@@ -117,6 +135,9 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        return Redirect::to('administrador/eventos');
+        //$event = Event::findOrFail($id);
+
+        //$event->
+        //return Redirect::to('administrador/eventos');
     }
 }

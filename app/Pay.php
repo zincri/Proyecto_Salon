@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Package extends Model
+class Pay extends Model
 {
-    protected $table = 'packages';
+    protected $table = 'pays';
 
     public function user()
     {
@@ -14,6 +14,6 @@ class Package extends Model
     }
     public function event()
     {
-        return $this->hasMany('App\Event', 'paquete_id');
+        return $this->hasOne('App\Event', 'id');
     }
 }
