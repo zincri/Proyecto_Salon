@@ -43,7 +43,7 @@
                             <li>{{$item->precio}}</li>
                             </ul>
                         </h6>
-                    <p class="dish-price"><a href="{{ URL::action('Client\GeneralController@show',$item->id)}}">Crear</a></p>
+                    <p class="dish-price"><a href="{{ URL::action('Client\EventosController@show',$item->id)}}">Crear</a></p>
                     </div>
                 </div>
             </div> 

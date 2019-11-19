@@ -70,13 +70,13 @@
                 </div>
             </div>
 
-            <div class="form-group {{$errors->has('anfitrion') ? 'has-error':''}}">
-                <label class="col-md-3 col-xs-12 control-label">anfitrion</label>
+            <div class="form-group {{$errors->has('evento') ? 'has-error':''}}">
+                <label class="col-md-3 col-xs-12 control-label">Evento</label>
                 <div class="col-md-6 col-xs-12">                                                                                            
                     <select class="form-control" name="anfitrion">
-                    <option value=""> SELECCIONA UN ORGANIZADOR </option>
-                        @foreach($combo as $item)
-                            @if(old('anfitrion') == $item->id)
+                    <option value=""> SELECCIONA EL EVENTO </option>
+                        @foreach($datos as $item)
+                            @if(old('evento') == $item->id)
                                 <option value="{{$item->id}}" selected>{{$item->nombre}}</option>
                             @else
                                 <option value="{{$item->id}}">{{$item->nombre}}</option>

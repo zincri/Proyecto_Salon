@@ -69,7 +69,7 @@
                             <li class="active"><a href="/">Home</a></li>
                             <li><a href="{{ url ('usuario/paquete') }}">Paquetes</a></li>
                             <li>
-                                <a href="{{ url ('usuario/galeria') }}">Galeria</a>
+                                <a href="{{ url ('login') }}">Galeria</a>
                             </li>
                             <li>
                                 <a href="{{ url ('login')}}">Login</a>

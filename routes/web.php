@@ -18,37 +18,22 @@ Route::get('/', function () {
 /** JHOANA DOMINGUEZ**/
 
 /** Usuario*/
-Route::get('usuario/paquete','Client\GeneralController@index2');
-
-
-Route::get('usuario/galeria', function () {
-    $dato = array("images/j_img14.jpg","images/j_img15.jpg","images/j_img16.jpg");
-    return view("contenido_usuario.galeria",['dato'=>$dato]);
-});
-
-Route::get('usuario/contacto', function () {
-    return view('contenido_usuario.contacto');
-});
-
+Route::get('usuario/paquete','Client\GeneralController@paquetes');
+Route::get('usuario/contacto','Client\GeneralController@contacto');
+Route::resource('/','Client\GeneralController');
 
 /** Cliente*/
 
-Route::get('/', function () {
-    return view('contenido_usuario.inicio');
-});
-
-Route::get('sesion', function () {
-    return view('contenido_principal.inicio');
-});
-Route::resource('paquete', 'Client\GeneralController');
-Route::resource('formC', 'Client\GeneralController');
-
+Route::get('sesion','Client\EventosController@sesion');
+Route::resource('paquete', 'Client\EventosController');
+Route::get('eventos','Client\EventosController@view');
+Route::post('eventos/eliminar/{id}','Client\EventosController@destroy');
+Route::get('eventos/galeria/{id}','Client\GaleriasController@index');
+Route::get('eventos/galeria/create/{id}','Client\GaleriasController@create');
+Route::resource('eventos/galeria','Client\GaleriasController');
 Route::get('contacto', function () {
     return view('contenido_principal.contacto');
 });
-
-
-Route::resource('eventos','EventosClienteController');
 
 
 /** JHOANA DOMINGUEZ**/
