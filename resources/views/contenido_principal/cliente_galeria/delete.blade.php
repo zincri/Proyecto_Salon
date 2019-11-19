@@ -1,11 +1,10 @@
 <div class="message-box message-box-danger animated fadeIn" id="message-box-danger-{{$item->id}}">
-    {{Form::Open(array('url'=>['eventos/eliminar/'.$item->id.''],'method'=>'POST'))}}
-    {{!! Form::token() !!}}
+    {{Form::Open(array('action'=>array('Client\GaleriasController@destroy',$item->id),'method'=>'delete'))}}
                 <div class="mb-container">
                     <div class="mb-middle">
-                        <div class="mb-title"><span class="fa fa-times"></span> Eliminar Registro</div>
+                        <div class="mb-title"><span class="fa fa-times"></span> Eliminar Imagen</div>
                         <div class="mb-content">
-                            <p>¿Esta seguro que desea eliminar este registro?</p>
+                            <p>¿Esta seguro que desea eliminar esta imagen?</p>
                         </div>
                         <div class="mb-footer">
                             

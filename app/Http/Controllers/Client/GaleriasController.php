@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
-use App\Organizer;
-use App\Event;
+use Illuminate\Http\Request;
+use App\Gallery;
 
-class EventosClienteController extends Controller
+class GaleriasController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        
+        $datos = Gallery::where('evento_id', '=', $id)->where('activo','=','1')->get();
+        return view("contenido_principal.cliente_galeria.galeria",['datos'=>$datos,'id'=>$id]);
     }
 
     /**
@@ -25,10 +25,9 @@ class EventosClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $combo=Organizer::all();
-        return view("contenido_principal.cliente_eventos.create",['combo'=>$combo]);
+        return view("contenido_principal.cliente_galeria.create",['id'=>$id]);
     }
 
     /**
@@ -50,8 +49,7 @@ class EventosClienteController extends Controller
      */
     public function show($id)
     {
-        $galeria = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        return view("contenido_principal.cliente_eventos.show",['galeria'=>$galeria]);
+        //
     }
 
     /**
@@ -85,6 +83,10 @@ class EventosClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $foto = Gallery::findOrFail($id);
+        $foto->activo = 0;
+        $foto->update();
+        return Redirect::to('galeria/');
+        
     }
 }

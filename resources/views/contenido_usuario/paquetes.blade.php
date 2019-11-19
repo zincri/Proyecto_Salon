@@ -32,20 +32,17 @@
         </div>
         <div class="row col-12">
             @foreach ($datos as $item)
-                
             <div class="col-12 col-xl-12 col-sm-6 col-md-4">
-                <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                <img src="{{ asset ($item)  }}" alt="">
-                    <div class="dish-info">
-                        <h6 class="dish-name">
-                            <ul>
-                                <li>Platillo:Medallones de pollo</li>
-                                <li>Musica:Conjunto Completo</li>
-                                <li>Mesa de Dulces</li>
-                                <li>BebidasCervezas y refrescoss</li>
-                            </ul>
+                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
+                    <img src="{{ asset ($item->foto_principal) }}" alt="">
+                        <div class="dish-info">
+                            <h6 class="dish-name">
+                                <ul>
+                                {{$item->descripcion}}
+                                <li>{{$item->precio}}</li>
+                                </ul>
                         </h6>
-                        <p class="dish-price"><a href="login">Crear</a></p>
+                    <p class="dish-price"><a href="{{url('login')}}">Crear</a></p>
                     </div>
                 </div>
             </div> 
