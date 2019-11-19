@@ -72,6 +72,9 @@ Route::resource('/administrador/abonos','Admin\AbonosController');
 Route::resource('/administrador/gastos','Admin\GastosController');
 Route::get('administrador/resetpass','Admin\UsuariosController@resetpass')->name('resetpass');
 Route::post('administrador/resetpass','Admin\UsuariosController@saveresetpass')->name('resetpass');
+Route::get('administrador/resetpassuser/{id}','Admin\UsuariosController@resetpassuser')->name('resetpassuser');
+Route::post('administrador/resetpassuser/{id}','Admin\UsuariosController@saveresetpassuser')->name('resetpassuser');
+
 
 Route::resource('/administrador/e/abonos','Admin\Employee\AbonosController');
 Route::resource('/administrador/e/eventos','Admin\Employee\EventosController');

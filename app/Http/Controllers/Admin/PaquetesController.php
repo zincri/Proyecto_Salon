@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use App\Package;
 
 class PaquetesController extends Controller
 {
@@ -43,6 +45,27 @@ class PaquetesController extends Controller
      */
     public function store(Request $request)
     {
+        $credentials=$this->validate(request(),[
+            'nombre'=>'required|string|max:30',
+            'descripcion'=>'required|string|max:1000',
+            'file' => 'required|mimes:jpg,jpeg,png|max:1000',
+            'file2'=>'required|mimes:jpg,jpeg,png|max:1000',
+            'precio'=>'required|string|max:10',
+        ]);
+        $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
+        $imagen=asset($path);
+
+        $path2 = Storage::disk('public')->put('imgupload/paquetes', $request->file('file2'));
+        $imagen2=asset($path2);
+
+        $paquete = new Package;
+        $paquete->nombre = $request->get('nombre');
+        $paquete->descripcion = $request->get('descripcion');
+        $paquete->foto_principal = $imagen;
+        $paquete->foto_secundaria = $imagen2;
+        $paquete->precio = $request->get('precio');
+        $paquete->activo = 1;
+        $paquete->save();
         return Redirect::to('administrador/paquetes');
     }
 

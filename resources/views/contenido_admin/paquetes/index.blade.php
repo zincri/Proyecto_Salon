@@ -46,7 +46,7 @@
                         <tbody>
                             @foreach ($datos as $item)
                             <tr>
-                                <td>Paquete Ejemplo</td>
+                                <td>nombre</td>
                                 <td>2011/04/25</td>
                                 <td>20</td>
                                 <td>

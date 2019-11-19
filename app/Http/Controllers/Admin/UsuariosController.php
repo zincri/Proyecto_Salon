@@ -177,4 +177,22 @@ class UsuariosController extends Controller
         
     }
 
+    public function resetpassuser($id)
+    {
+        return view("contenido_admin.usuarios.resetear_pass_user",['id'=>$id]);
+    }
+
+    public function saveresetpassuser(Request $request,$id)
+    {
+        
+        $credentials=$this->validate(request(),[
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        $new = $request->get('password');
+        $usuario_db = User::findOrFail($id);
+        $usuario_db->password = bcrypt($new);
+        $usuario_db->update();
+        return Redirect::to('administrador/dashboard');
+    }
+
 }
