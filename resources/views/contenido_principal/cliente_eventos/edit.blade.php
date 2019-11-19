@@ -1,7 +1,7 @@
 @extends ('layouts.master_cliente')
 
 @section ('content')
-{!!Form::open(array('action'=>['Client\EventosController@update',$datos->id],'method'=>'PATCH','autocomplete'=>'off'))!!}
+{!!Form::open(array('action'=>['Client\EventosController@update',$datos->id],'method'=>'PATCH','autocomplete'=>'off','files' => 'true'))!!}
 {{Form::token()}}
 
                 <div class="form-horizontal">
@@ -84,7 +84,17 @@
                                         
                                     </div>
                                 </div>
-
+                                    <div class="form-group {{$errors->has('url_imagen_principal') ? 'has-error':''}}">
+                                        <label class="col-md-3 col-xs-12 control-label">Imagen Principal</label>
+                                                <div class="col-md-6 col-xs-12">                               
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input type="file"  name="url_imagen_principal" id="url_imagen_principal"  class="file" accept="image/*" data-preview-file-type="any"/>
+                                                                {!! $errors->first('url_imagen_principal','<span class="help-block">:message</span>')!!}
+                                                         </div>
+                                                     </div>                                                            
+                                                 </div>
+                                        </div>
                                 <div class="panel-footer">                                   
                                     <button class="btn btn-primary pull-right" type="submit">Guardar</button>
                                 </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Package;
 use App\Event;
 use App\Gallery;
@@ -46,6 +47,8 @@ class EventosController extends Controller
         $datos = Event::where('cliente_id', '=', $usuario->id)->where('activo','=','1')->get();
         return view("contenido_principal.cliente_eventos.index",['datos'=>$datos]);
      }
+     
+     
     public function create()
     {
         
@@ -64,15 +67,19 @@ class EventosController extends Controller
             'nombre' => 'required|string',
             'descripcion'=>'required',
             'numero_invitados'=>'required',
+            'url_imagen_principal' => 'required|mimes:jpg,jpeg,png|max:1000',
             'hora'=>'required',
             'fecha'=>'required',
             'paquete_id'=>'required',
         ]);
+        $path = Storage::disk('public')->put('imgupload/galerias', $request->file('url_imagen_principal'));
+        $imagen=asset($path);
         
         $evento = new Event;
         $evento->nombre = $request->get('nombre');
         $evento->descripcion = $request->get('descripcion');
         $evento->numero_invitados = $request->get('numero_invitados');
+        $evento->url_imagen_principal = $imagen;
         $evento->confirmado = 0;
         $evento->activo = 1;
         $evento->hora = $request->get('hora');
@@ -99,6 +106,8 @@ class EventosController extends Controller
 
     public function showEvent($id)
     {
+        $event = Event::find($id);
+        $this->authorize('pass',$event);
         
         $datos =Event::find($id);
         $fotos =Gallery::where('evento_id','=',$id)->where('activo','=','1')->get();
@@ -115,6 +124,9 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
+        $event = Event::find($id);
+        $this->authorize('pass',$event);
+
         $opcion = Package::all();
         $datos = Event::find($id);
         return view("contenido_principal.cliente_eventos.edit",['datos'=>$datos,'opcion'=>$opcion]);
@@ -129,6 +141,10 @@ class EventosController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $event = Event::find($id);
+        $this->authorize('pass',$event);
+
         $credentials=$this->validate(request(),[
             'nombre' => 'required|string',
             'descripcion'=>'required',
@@ -137,7 +153,29 @@ class EventosController extends Controller
             'fecha'=>'required',
             'paquete_id'=>'required',
         ]);
+       if( $request->file('url_imagen_principal')){ 
         
+        $credentials=$this->validate(request(),[
+            'url_imagen_principal' => 'required|mimes:jpg,jpeg,png|max:1000',
+        ]);
+        $path = Storage::disk('public')->put('imgupload/galerias', $request->file('url_imagen_principal'));
+        $imagen=asset($path);
+
+        $evento = Event::findOrFail($id);;
+        $evento->nombre = $request->get('nombre');
+        $evento->descripcion = $request->get('descripcion');
+        $evento->numero_invitados = $request->get('numero_invitados');
+        $evento->url_imagen_principal = $imagen;
+        $evento->confirmado = 0;
+        $evento->activo = 1;
+        $evento->hora = $request->get('hora');
+        $evento->fecha = $request->get('fecha');
+        $evento->paquete_id = $request->get('paquete_id');
+        $evento->cliente_id = Auth::user()->id;
+        $evento->update();
+        return  Redirect::to('eventos');
+    }
+    else{
         $evento = Event::findOrFail($id);;
         $evento->nombre = $request->get('nombre');
         $evento->descripcion = $request->get('descripcion');
@@ -151,6 +189,7 @@ class EventosController extends Controller
         $evento->update();
         return  Redirect::to('eventos');
     }
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -160,6 +199,9 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
+        $event = Event::find($id);
+        $this->authorize('pass',$event);
+
         $fotos = Gallery::where('evento_id','=',$id)->where('activo','=','1')->get();
         if (!$fotos){
         $evento = Event::findOrFail($id);

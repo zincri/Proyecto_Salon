@@ -31,7 +31,7 @@ Route::get('eventos/show/{id}','Client\EventosController@showEvent');
 Route::post('eventos/eliminar/{id}','Client\EventosController@destroy');
 Route::get('eventos/galeria/{id}','Client\GaleriasController@index');
 Route::get('eventos/galeria/create/{id}','Client\GaleriasController@create');
-
+Route::post('eventos/galeria/store/{id}','Client\GaleriasController@store');
 Route::resource('eventos/galeria','Client\GaleriasController');
 Route::get('contacto', function () {
     return view('contenido_principal.contacto');
