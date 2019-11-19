@@ -3,10 +3,9 @@
 namespace App\Policies;
 
 use App\User;
-use App\Gallery;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class GalleryPolicy
+class ExpensePolicy
 {
     use HandlesAuthorization;
 
@@ -18,10 +17,5 @@ class GalleryPolicy
     public function __construct()
     {
         //
-    }
-
-    public function pass(User $user, Gallery $gallery)
-    {
-        return $user->id == $gallery->usuario_id;
     }
 }

@@ -23,6 +23,9 @@ class PaquetesController extends Controller
 
     public function index()
     {
+
+        $this->authorize('pass');
+
         $datos = Package::all();
         return view("contenido_admin.paquetes.index",['datos'=>$datos]);
     }
@@ -45,6 +48,8 @@ class PaquetesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('pass');
+
         $credentials=$this->validate(request(),[
             'nombre'=>'required|string|max:30',
             'descripcion'=>'required|string|max:1000',
@@ -89,6 +94,8 @@ class PaquetesController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('pass');
+
         $datos = Package::find($id);
         return view("contenido_admin.paquetes.edit",['datos'=>$datos]);
     }
@@ -102,6 +109,7 @@ class PaquetesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('pass');
         $credentials=$this->validate(request(),[
             'nombre'=>'required|string|max:30',
             'descripcion'=>'required|string|max:1000',
@@ -173,6 +181,7 @@ class PaquetesController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('pass');
         //Eliminar Datos
         $paquete = Package::findOrFail($id);
         $paquete->activo = 0;
