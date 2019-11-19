@@ -62,8 +62,8 @@
 							<li>
 								<a href="{{ url ('eventos') }}">Eventos</a>
 							</li>
-							<li><a href="contacto">Contacto</a></li>	
-							<li><a class="glyphicon glyphicon-shopping-cart" href="eventos"></a></li>
+							<li><a href="{{ url ('contacto') }}">Contacto</a></li>
+							<li><a href="">{{Auth::user()->name}}</a></li>		
 						<li>
 								<a href="{{ route('logout') }}" 
 								onclick="event.preventDefault();

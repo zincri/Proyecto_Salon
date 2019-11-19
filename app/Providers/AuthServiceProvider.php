@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\Event;
+use App\Gallery;
+use App\Policies\EventPolicy;
+use App\Policies\GalleryPolicy;
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,6 +19,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        Event::class => EventPolicy::class,
+        Gallery::class => GalleryPolicy::class,
     ];
 
     /**

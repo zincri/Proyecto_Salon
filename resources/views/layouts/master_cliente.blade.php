@@ -35,8 +35,8 @@
                                 <img src="{{asset('assets/images/users/avatar.jpg')}}" alt=""/>
                             </div>
                             <div class="profile-data">
-                                <div class="profile-data-name"></div>
-                                <div class="profile-data-title"></div>
+                                <div class="profile-data-name">{{Auth::user()->name}}</div>
+                                <div class="profile-data-title">{{Auth::user()->rol}}</div>
                             </div>
                             <div class="profile-controls">
                                 <a href="" class="profile-control-left"><span class="fa fa-info"></span></a>
