@@ -97,6 +97,16 @@ class EventosController extends Controller
         return view("contenido_principal.form_createEvent",['datos'=>$datos]);
     }
 
+    public function showEvent($id)
+    {
+        
+        $datos =Event::find($id);
+        $fotos =Gallery::where('evento_id','=',$id)->where('activo','=','1')->get();
+        $dato =Package::find($datos->paquete_id);
+        return view("contenido_principal.cliente_eventos.show",['datos'=>$datos,'fotos'=>$fotos,'dato'=>$dato]);
+        
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -105,7 +115,9 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $opcion = Package::all();
+        $datos = Event::find($id);
+        return view("contenido_principal.cliente_eventos.edit",['datos'=>$datos,'opcion'=>$opcion]);
     }
 
     /**
@@ -117,7 +129,27 @@ class EventosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $credentials=$this->validate(request(),[
+            'nombre' => 'required|string',
+            'descripcion'=>'required',
+            'numero_invitados'=>'required',
+            'hora'=>'required',
+            'fecha'=>'required',
+            'paquete_id'=>'required',
+        ]);
+        
+        $evento = Event::findOrFail($id);;
+        $evento->nombre = $request->get('nombre');
+        $evento->descripcion = $request->get('descripcion');
+        $evento->numero_invitados = $request->get('numero_invitados');
+        $evento->confirmado = 0;
+        $evento->activo = 1;
+        $evento->hora = $request->get('hora');
+        $evento->fecha = $request->get('fecha');
+        $evento->paquete_id = $request->get('paquete_id');
+        $evento->cliente_id = Auth::user()->id;
+        $evento->update();
+        return  Redirect::to('eventos');
     }
 
     /**

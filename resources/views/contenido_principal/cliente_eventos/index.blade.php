@@ -52,8 +52,11 @@
                             <td>
                             <a href="{{ url('eventos/galeria/'.$item->id.'')}}"><button
                                         class="btn btn-warning"><i class="fa fa-picture-o"></i></button></a>
-
-                                <a href="{{URL::action('EventosClienteController@show',$item->id)}}"><button
+                         @if($item->confirmado == '0')
+                            <a href="{{ URL::action('Client\EventosController@edit',$item->id)}}"><button
+                                    class="btn btn-warning"><i class="fa fa-edit"></i></button></a>
+                        @endif
+                                <a href="{{ url('eventos/show/'.$item->id.'')}}"><button
                                         class="btn btn-info"><i class="fa fa-eye"></i></button></a>
                             @if($item->confirmado == '0')
                                 <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}"
