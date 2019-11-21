@@ -64,7 +64,7 @@ Route::post('administrador/uploadnewimage/{id}','Admin\GaleriaController@store')
 
 Route::resource('/administrador/e/abonos','Admin\Employee\AbonosController');
 Route::resource('/administrador/e/eventos','Admin\Employee\EventosController');
-
+Route::resource('registrar','RegistrarUsuarioController');
 
 
 /* LOGIN DE LARAVEL IMPLEMENTADO */

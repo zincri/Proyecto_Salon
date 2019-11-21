@@ -70,7 +70,7 @@ class AbonosController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('pass');
+        //$this->authorize('pass');
         return view("contenido_admin.abonos.create",['id'=>$id]);
     }
 

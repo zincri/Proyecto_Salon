@@ -25,7 +25,7 @@
             </div>
 
             <div class="panel-footer">
-                <button class="btn btn-primary pull-right" type="submit">Agregar abono</button>
+                <button class="btn btn-primary pull-right" type="submit">Agregar Foto</button>
             </div>
         </div>
     </div>

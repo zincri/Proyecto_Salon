@@ -102,13 +102,16 @@ class GaleriasController extends Controller
      */
     public function destroy($id)
     {
-        $gallery = Gallery::find($id);
-        $this->authorize('pass',$gallery);
-        
-        $foto = Gallery::findOrFail($id);
-        $foto->activo = 0;
-        $foto->update();
-        return Redirect::to('galeria/');
+
+        $image=Gallery::find($id);
+        if(Auth::user()->id==$image->usuario_id){
+            $image->activo = 0;
+            $image->update();
+            return Redirect::to('eventos');
+        }
+        else{
+            return back()->withErrors(['erroregistro'=> trans('Error.')]);
+        }
         
     }
 }
