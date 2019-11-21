@@ -23,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
         Event::class => EventPolicy::class,
         Gallery::class => GalleryPolicy::class,
+        Package::class => PackagePolicy::class,
         Pay::class => PayPolicy::class,
     ];
 
