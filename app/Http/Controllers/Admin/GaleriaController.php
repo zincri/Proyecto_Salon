@@ -41,7 +41,7 @@ class GaleriaController extends Controller
     public function store(Request $request,$id)
     {
         $credentials=$this->validate(request(),[
-            'file' => 'required|mimes:jpg,jpeg,png|max:1000',
+            'file' => 'required|mimes:jpg,jpeg,png|max:10000',
         ]);
         $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
         $imagen=asset($path);

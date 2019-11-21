@@ -23,7 +23,7 @@ class AbonosController extends Controller
 
     public function index()
     {
-        $this->authorize('pass');
+        //$this->authorize('pass');
 
         $datos = Pay::all();
         return view("contenido_admin.abonos.index",['datos'=>$datos]);
@@ -83,7 +83,7 @@ class AbonosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->authorize('pass');
+        //$this->authorize('pass');
         $credentials=$this->validate(request(),[
             'monto'=>'required|string|max:10',
             'fecha'=>'required',

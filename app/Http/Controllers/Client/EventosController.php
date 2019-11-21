@@ -67,25 +67,24 @@ class EventosController extends Controller
             'nombre' => 'required|string',
             'descripcion'=>'required',
             'numero_invitados'=>'required',
-            'url_imagen_principal' => 'required|mimes:jpg,jpeg,png|max:1000',
+            'url_imagen_principal' => 'required',
             'hora'=>'required',
             'fecha'=>'required',
             'paquete_id'=>'required',
         ]);
-        $path = Storage::disk('public')->put('imgupload/galerias', $request->file('url_imagen_principal'));
-        $imagen=asset($path);
         
         $evento = new Event;
         $evento->nombre = $request->get('nombre');
         $evento->descripcion = $request->get('descripcion');
         $evento->numero_invitados = $request->get('numero_invitados');
-        $evento->url_imagen_principal = $imagen;
+        $evento->url_imagen_principal = $request->get('url_imagen_principal');
         $evento->confirmado = 0;
         $evento->activo = 1;
         $evento->hora = $request->get('hora');
         $evento->fecha = $request->get('fecha');
         $evento->paquete_id = $request->get('paquete_id');
         $evento->cliente_id = Auth::user()->id;
+        $evento->anfitrion = Auth::user()->id;
         $evento->save();
         return  Redirect::to('paquete');
         
@@ -107,7 +106,7 @@ class EventosController extends Controller
     public function showEvent($id)
     {
         $event = Event::find($id);
-        $this->authorize('pass',$event);
+        //$this->authorize('pass',$event);
         
         $datos =Event::find($id);
         $fotos =Gallery::where('evento_id','=',$id)->where('activo','=','1')->get();
@@ -125,7 +124,7 @@ class EventosController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
-        $this->authorize('pass',$event);
+        //$this->authorize('pass',$event);
 
         $opcion = Package::all();
         $datos = Event::find($id);
@@ -143,7 +142,7 @@ class EventosController extends Controller
     {
 
         $event = Event::find($id);
-        $this->authorize('pass',$event);
+        //$this->authorize('pass',$event);
 
         $credentials=$this->validate(request(),[
             'nombre' => 'required|string',
@@ -172,6 +171,7 @@ class EventosController extends Controller
         $evento->fecha = $request->get('fecha');
         $evento->paquete_id = $request->get('paquete_id');
         $evento->cliente_id = Auth::user()->id;
+        $evento->anfitrion = Auth::user()->id;
         $evento->update();
         return  Redirect::to('eventos');
     }
@@ -200,7 +200,7 @@ class EventosController extends Controller
     public function destroy($id)
     {
         $event = Event::find($id);
-        $this->authorize('pass',$event);
+        //$this->authorize('pass',$event);
 
         $fotos = Gallery::where('evento_id','=',$id)->where('activo','=','1')->get();
         if (!$fotos){

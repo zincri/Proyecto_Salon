@@ -28,6 +28,6 @@ class PackagePolicy
         $dato= false;
       }
 
-      return $dato;
+      return true;
     }
 }
