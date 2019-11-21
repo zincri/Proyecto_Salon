@@ -40,7 +40,18 @@ class GaleriaController extends Controller
      */
     public function store(Request $request,$id)
     {
-        return "entro a store";
+        $credentials=$this->validate(request(),[
+            'file' => 'required|mimes:jpg,jpeg,png|max:1000',
+        ]);
+        $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
+        $imagen=asset($path);
+
+        $gallery = new Gallery;
+        $gallery->evento_id = $id;
+        $gallery->url = $imagen;
+        $gallery->usuario_id = Auth::user()->id;
+        $gallery->save();
+        return Redirect::to('administrador/uploadimage/'.$id.'');
     }
 
     /**
