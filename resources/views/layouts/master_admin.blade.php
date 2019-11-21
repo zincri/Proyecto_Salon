@@ -37,7 +37,13 @@
                             </div>
                             <div class="profile-data">
                                 <div class="profile-data-name">{{Auth::user()->name}}</div>
-                                <div class="profile-data-title">Gerente</div>
+                                <div class="profile-data-title">
+                                    @if (Auth::user()->rol=="manager")
+                                        Gerente
+                                    @else
+                                        Empleado
+                                    @endif
+                                </div>
                             </div>
                             <div class="profile-controls">
                                 <a href="{{ URL::action('Admin\UsuariosController@edit',Auth::user()->id)}}" class="profile-control-left"><span class="fa fa-edit"></span></a>
@@ -60,16 +66,21 @@
                         <a href="#"><span class="fa fa-weibo"></span> <span class="xn-text">Eventos</span></a>
                         <ul>
                             <li><a href="{{  url('administrador/eventos')  }}"><span class="fa fa-weibo"></span>Eventos</a></li>
+                            @if (Auth::user()->rol == "manager")
                             <li><a href="{{  url('administrador/clientes_organizadores')  }}"><span class="fa fa-weibo"></span>Clientes Organizadores</a></li>
-                            <li><a href="{{  url('administrador/paquetes')  }}"><span class="fa fa-archive"></span>Paquetes</a></li>
+                            <li><a href="{{  url('administrador/paquetes')  }}"><span class="fa fa-archive"></span>Paquetes</a></li>        
+                            @endif
                         </ul>
                     </li>
+                    @if (Auth::user()->rol == "manager")
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user"></span> <span class="xn-text">Usuarios</span></a>
                         <ul>
                             <li><a href="{{  url('administrador/usuarios')  }}"><span class="fa fa-user"></span> Usuarios</a></li>
                         </ul>
-                    </li>
+                    </li>    
+                    @endif
+                    
                     
                     
                 </ul>
