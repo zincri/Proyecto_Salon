@@ -117,7 +117,7 @@
                     <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
                     <div class="mb-content">
                         <p>¿Estas seguro que quieres salir?</p>                    
-                        <p>Preciona "No" si deseas continuar trabajando. Preciona "No" si deseas cerrar tu sesion.</p>
+                        <p>Preciona "No" si deseas continuar trabajando. Preciona "Si" si deseas cerrar tu sesion.</p>
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">

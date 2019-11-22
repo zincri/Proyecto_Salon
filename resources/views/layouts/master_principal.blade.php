@@ -10,14 +10,15 @@
 
 	<!--Links-->
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/css/animate.css') }}">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{{asset ('css/icomoon.css')}}">
+	<link rel="stylesheet" href="{{asset ('css/css/icomoon.css')}}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{asset ('css/css/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{asset ('css/css/bootstrap/bootstrap.css') }}">
 
 	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="{{ asset ('css/css/magnific-popup.css') }}">
+	<link rel="stylesheet" href="{{ asset ('css/magnific-popup.css') }}">
+	
 
 	<!-- Owl Carousel  -->
 	<link rel="stylesheet" href="{{ asset ('css/css/owl.carousel.min.css') }}">
@@ -84,16 +85,17 @@
 
 
 
+		
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="container text-center">
 				<div class="row copyright">
 					<div class="col-md-12 text-center">
-						<h4>Contact Information</h4>
+						<h4>Contact</h4>
 						<ul class="fh5co-footer-links">
-							<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="/">+ 1235 2355 98</a></li>
+							<li>Av.Costa rica <br> Manz 01 Lote 39, Col Tuxtla Chico</li>
+							<li><a href="/">+ 961 225 0380</a></li>
 							<li><a href="/">7397@ittg.com</a></li>
-							<li><a href="/">Zincri-Jhoana</a></li>
+							<li><a href="/">Create by Zincri Mendoza-Jhoana Dominguez</a></li>
 						</ul>
 					</div>
 
@@ -101,14 +103,6 @@
 				<div class="col-md-12 text-center">
 					<p>
 						<small class="block">&copy; Frameworks Class/Jhoana/Zincri.</small>
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-twitter2"></i></a></li>
-							<li><a href="#"><i class="icon-facebook2"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin2"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble2"></i></a></li>
-						</ul>
 					</p>
 				</div>
 			</div>
@@ -121,12 +115,12 @@
 
 
 
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+	<script src="{{asset ('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places')}}"></script>
 
-	<script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
-	<script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>
-	<script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-europe-mill-en.js'></script>
-	<script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-us-aea-en.js'></script>
+	<script type='text/javascript' src="{{ asset ('js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+	<script type='text/javascript' src="{{ asset ('js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+	<script type='text/javascript' src="{{ asset ('js/plugins/jvectormap/jquery-jvectormap-europe-mill-en.js')}}"></script>
+	<script type='text/javascript' src="{{asset ('js/plugins/jvectormap/jquery-jvectormap-us-aea-en.js')}}"></script>
 
 	<!-- Waypoints -->
 	<script src="{{ asset ('js/jquery.waypoints.min.js') }}"></script>
