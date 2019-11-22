@@ -19,7 +19,11 @@
         </div>
     </div>
 <div class="row">
-
+    {!! $errors->first('erroregistro','
+    <div class="alert alert-danger">
+        <strong>No se puede eliminar, no eres el propietario de la imagen!</strong>
+    </div>
+    ')!!}
 
     <div class="col-md-12">
         <!-- START DEFAULT DATATABLE -->

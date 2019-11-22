@@ -64,18 +64,18 @@ Route::post('administrador/uploadnewimage/{id}','Admin\GaleriaController@store')
 
 Route::resource('/administrador/e/abonos','Admin\Employee\AbonosController');
 Route::resource('/administrador/e/eventos','Admin\Employee\EventosController');
-
+Route::resource('registrar','RegistrarUsuarioController');
 
 
 /* LOGIN DE LARAVEL IMPLEMENTADO */
 Route::get('/login', function () {
     if(Auth::check()){
-        if (Auth::user()->rol == "manager"){
+        if (Auth::user()->rol == "manager" || Auth::user()->rol == "employee"){
             return redirect('administrador/dashboard');
-        }
+        }/*
         elseif(Auth::user()->rol == "employee"){
             return redirect('administrador/empleado');
-        }
+        }*/
         elseif(Auth::user()->rol == "client"){
             return redirect('sesion');
         }

@@ -1,25 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use App\Gallery;
-
-class GaleriaController extends Controller
+use App\User;
+class RegistrarUsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $datos = Gallery::where('activo','=','1')->where('evento_id','=',$id)->get();
-        return view('contenido_admin.galeria.index',['datos'=>$datos,'id'=>$id]);
+        return view('auth.register');
     }
 
     /**
@@ -27,10 +22,9 @@ class GaleriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-
-        return view('contenido_admin.galeria.create',['id'=>$id]);
+        //
     }
 
     /**
@@ -39,21 +33,31 @@ class GaleriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request)
     {
+        //registrar en base de datos
         $credentials=$this->validate(request(),[
-            'file' => 'required|mimes:jpg,jpeg,png|max:10000',
+            'apellido_paterno' => 'required|string',
+            'apellido_materno'=>'required',
+            'edad'=>'required',
+            'nombre'=>'required|string|max:50',
+            'email' => 'required|string|email|max:50|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'telefono'=>'required|string|max:10',
         ]);
-        $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
-        $imagen=asset($path);
 
-        $gallery = new Gallery;
-        $gallery->evento_id = $id;
-        $gallery->url = $imagen;
-        $gallery->usuario_id = Auth::user()->id;
-        $gallery->activo = 1;
-        $gallery->save();
-        return Redirect::to('administrador/uploadimage/'.$id.'');
+        $usuario = new User;
+        $usuario->name = $request->get('nombre');
+        $usuario->email = $request->get('email');
+        $usuario->password = bcrypt($request->get('password'));
+        $usuario->activo = 1;
+        $usuario->rol = "client";
+        $usuario->apellido_paterno = $request->get('apellido_paterno');
+        $usuario->apellido_materno = $request->get('apellido_materno');
+        $usuario->edad = $request->get('edad');
+        $usuario->telefono = $request->get('telefono');
+        $usuario->save();
+        return Redirect::to('login');
     }
 
     /**
@@ -98,14 +102,6 @@ class GaleriaController extends Controller
      */
     public function destroy($id)
     {
-        $image=Gallery::find($id);
-        if(Auth::user()->id==$image->usuario_id){
-            $image->activo = 0;
-            $image->update();
-            return Redirect::to('administrador/eventos');
-        }
-        else{
-            return back()->withErrors(['erroregistro'=> trans('Error.')]);
-        }
+        //
     }
 }

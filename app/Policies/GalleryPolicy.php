@@ -22,6 +22,6 @@ class GalleryPolicy
 
     public function pass(User $user, Gallery $gallery)
     {
-        return $user->id == $gallery->usuario_id;
+        return true;//$user->id == $gallery->usuario_id;
     }
 }

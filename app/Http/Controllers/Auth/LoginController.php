@@ -52,12 +52,12 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){//Si no se ejecuta esta linea el loggeo no se guarda
             $usuario=User::where('email', '=', $email)->first();
             if (Hash::check($password, $usuario->password)){
-                    if ($usuario->rol == "manager"){
-                        return Redirect::to('administrador/dashboard');
-                    }
+                if (Auth::user()->rol == "manager" || Auth::user()->rol == "employee"){
+                    return redirect('administrador/dashboard');
+                }/*
                     elseif($usuario->rol == "employee"){
                         return Redirect::to('administrador/empleado');
-                    }
+                    }*/
                     elseif($usuario->rol == "client"){
                         return Redirect::to('sesion');
                     }

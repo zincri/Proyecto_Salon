@@ -19,7 +19,7 @@ class GaleriasController extends Controller
     public function index($id)
     {
         $gallery = Gallery::find($id);
-        $this->authorize('pass',$gallery);
+        //$this->authorize('pass',$gallery);
 
         $datos = Gallery::where('evento_id', '=', $id)->where('activo','=','1')->get();
         return view("contenido_principal.cliente_galeria.galeria",['datos'=>$datos,'id'=>$id]);
@@ -46,7 +46,7 @@ class GaleriasController extends Controller
     {
         $credentials=$this->validate(request(),[
             'evento_id' => 'required',
-            'url' => 'required|mimes:jpg,jpeg,png|max:1000',
+            'url' => 'required|mimes:jpg,jpeg,png|max:10000',
         ]);
         $path = Storage::disk('public')->put('imgupload/galerias', $request->file('url'));
         $imagen=asset($path);
@@ -102,13 +102,16 @@ class GaleriasController extends Controller
      */
     public function destroy($id)
     {
-        $gallery = Gallery::find($id);
-        $this->authorize('pass',$gallery);
-        
-        $foto = Gallery::findOrFail($id);
-        $foto->activo = 0;
-        $foto->update();
-        return Redirect::to('galeria/');
+
+        $image=Gallery::find($id);
+        if(Auth::user()->id==$image->usuario_id){
+            $image->activo = 0;
+            $image->update();
+            return Redirect::to('eventos');
+        }
+        else{
+            return back()->withErrors(['erroregistro'=> trans('Error.')]);
+        }
         
     }
 }
