@@ -24,10 +24,10 @@
         <div class="fh5co-contact-info col-lg-7">
             <h3>Contact Information</h3>
             <ul>
-                <li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-                <li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
-                <li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                <li class="url"><a href="http://gettemplates.co">gettemplates.co</a></li>
+                <li class="address">Av.Costa rica , <br> Manz 01 Lote 39, Col Tuxtla Chico</li>
+                <li class="phone">Tel:  961 225 0380</li>
+                <li class="email">Email: 7397@ittg.com</a></li>
+                <li class="url">Create by Zincri Mendoza & Jhoana Dominguez.com</li>
             </ul>
         </div>
 

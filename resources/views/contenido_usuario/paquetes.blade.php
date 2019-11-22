@@ -11,7 +11,6 @@
                         <h1> Real Fantasy Events </h1>
                         <h2>Los eventos son efímeros, las emociones perduran</h2>
                         <div class="simply-countdown simply-countdown-one"></div>
-                        <p><a href="{{url('/login')}}" class="btn btn-default btn-sm">Crea tu evento</a></p>
                     </div>
                 </div>
             </div>

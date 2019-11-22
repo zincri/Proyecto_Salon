@@ -91,6 +91,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    
                         
                                     <div class="form-group">
                                         <label class="col-md-3 col-xs-3 control-label">Hora</label>
@@ -121,4 +123,5 @@
         
     </div>
 </div>
+<script type='text/javascript' src="{{ asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>  
 @endsection

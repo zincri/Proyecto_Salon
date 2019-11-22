@@ -12,7 +12,7 @@ class GeneralController extends Controller
   
     public function index()
     {
-        return view("contenido_usuario.inicio");
+    
     }
 
     public function paquetes()
