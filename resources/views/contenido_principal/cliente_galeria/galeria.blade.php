@@ -36,7 +36,6 @@
                     <thead>
                         <tr>
                             <th>Imagen</th>
-                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -50,7 +49,6 @@
                                 </div>                                
                             </a>
                         </td>
-                            <td>{{$item->activo}}</td>
                             <td>
                                 <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}"
                                     data-toggle="modal"><button class="btn btn-danger"><i

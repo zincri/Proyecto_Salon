@@ -10,10 +10,6 @@
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeIn">
                         <h1> Contacto </h1>
-                        <h2></h2>
-                        <div class="simply-countdown simply-countdown-one"></div>
-                        <p><a href="#" class="btn btn-default btn-sm">Agregar Fotos</a></p>
-                    </div>
                 </div>
             </div>
         </div>
