@@ -66,7 +66,10 @@
                     <div class="contact-info">
                         <p><small>Telefono</small><br/>{{$item->telefono}}</p>
                         <p><small>Email</small><br/>{{$item->email}}</p>    
+                        @if (Auth::user()->rol=="manager")
                         <a href="{{ url('administrador/resetpassuser/'.$item->id.'')}}"><p><small>Restablecer contraseña</small><br/></p></a>   
+                        
+                        @endif
                     </div>
                 </div>                                
             </div>

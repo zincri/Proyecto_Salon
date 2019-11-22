@@ -38,10 +38,7 @@
                                 <div class="profile-data-name">{{Auth::user()->name}}</div>
                                 <div class="profile-data-title">{{Auth::user()->rol}}</div>
                             </div>
-                            <div class="profile-controls">
-                                <a href="{{ URL::action('Admin\UsuariosController@edit',Auth::user()->id)}}" class="profile-control-left"><span class="fa fa-edit"></span></a>
-                                <a href="{{ url('administrador/resetpass') }}" class="profile-control-right"><span class="fa fa-cog"></span></a>
-                            </div>
+                            
                         </div>     
                 </ul>
                 <!-- END X-NAVIGATION -->
