@@ -28,7 +28,6 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 	<link rel="icon" href="{{ asset ('favicon.ico') }}" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}" />
 	<!--Style Menu-->
 	<link href="{{ asset ('css/responsive/responsive.css')}}" rel="stylesheet">
 	<link href="{{ asset ('css/style2.css') }}" rel="stylesheet">
@@ -139,19 +138,34 @@
 
 	<script src="{{ asset ('js/simplyCountdown.js') }}"></script>
 
+	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-datepicker.js')}}"></script>
 
+	<script type='text/javascript' src="{{ asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>                
+	
+	<script type='text/javascript' src="{{ asset('js/plugins/daterangepicker/daterangepicker.js')}}"></script>     
 
 	<!-- Main -->
 	<script src="{{ asset ('js/main.js') }}"></script>
 
+	
 
-	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-colorpicker.js')}}"></script>
-	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-datepicker.js')}}"></script>
 	
 	<!-- END THIS PAGE PLUGINS -->
+	<!-- THIS PAGE PLUGINS -->
+	<script type='text/javascript' src='{{asset('js/plugins/icheck/icheck.min.js')}}'></script>
+	<script type="text/javascript" src="{{asset('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
+	
+	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-datepicker.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-colorpicker.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-file-input.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-select.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/plugins/tagsinput/jquery.tagsinput.min.js')}}"></script>
+	<!-- END THIS PAGE PLUGINS -->   
 
-	<script type="text/javascript" src="{{asset('js/plugins.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins.js')}}"></script>        
+	<script type="text/javascript" src="{{ asset('js/actions.js')}}"></script>
 
 </body>
 

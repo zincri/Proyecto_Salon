@@ -123,5 +123,4 @@
         
     </div>
 </div>
-<script type='text/javascript' src="{{ asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>  
 @endsection

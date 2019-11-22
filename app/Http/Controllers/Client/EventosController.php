@@ -199,11 +199,10 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        $event = Event::find($id);
-        //$this->authorize('pass',$event);
-
+        
         $fotos = Gallery::where('evento_id','=',$id)->where('activo','=','1')->get();
-        if (!$fotos){
+        
+        if (empty($fotos)==false){
         $evento = Event::findOrFail($id);
         $evento->activo = 0;
         $evento->update();
@@ -212,5 +211,6 @@ class EventosController extends Controller
         else{
            return back()->withErrors(['erroregistro'=> trans('El evento no se puede eliminar ya que contiene fotos')]);
         }
+        
     }
 }
