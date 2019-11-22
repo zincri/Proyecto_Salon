@@ -24,7 +24,7 @@ class PaquetesController extends Controller
     public function index()
     {
 
-        $this->authorize('pass');
+        //$this->authorize('pass');
 
         $datos = Package::all();
         return view("contenido_admin.paquetes.index",['datos'=>$datos]);
@@ -48,13 +48,13 @@ class PaquetesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('pass');
+        //$this->authorize('pass');
 
         $credentials=$this->validate(request(),[
             'nombre'=>'required|string|max:30',
             'descripcion'=>'required|string|max:1000',
-            'file' => 'required|mimes:jpg,jpeg,png|max:1000',
-            'file2'=>'required|mimes:jpg,jpeg,png|max:1000',
+            'file' => 'required|mimes:jpg,jpeg,png|max:10000',
+            'file2'=>'required|mimes:jpg,jpeg,png|max:10000',
             'precio'=>'required|string|max:10',
         ]);
         $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
@@ -94,7 +94,7 @@ class PaquetesController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('pass');
+        //$this->authorize('pass');
 
         $datos = Package::find($id);
         return view("contenido_admin.paquetes.edit",['datos'=>$datos]);
@@ -109,18 +109,18 @@ class PaquetesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->authorize('pass');
+        //$this->authorize('pass');
         $credentials=$this->validate(request(),[
             'nombre'=>'required|string|max:30',
-            'descripcion'=>'required|string|max:1000',
+            'descripcion'=>'required|string|max:10000',
             //'file' => 'required|mimes:jpg,jpeg,png|max:1000',
             //'file2'=>'required|mimes:jpg,jpeg,png|max:1000',
             'precio'=>'required|string|max:10',
         ]);
         if($request->file('file') && $request->file('file2')){
             $this->validate(request(),[
-                'file'=>'required|mimes:jpg,jpeg,png|max:1000',
-                'file2'=>'required|mimes:jpg,jpeg,png|max:1000',
+                'file'=>'required|mimes:jpg,jpeg,png|max:10000',
+                'file2'=>'required|mimes:jpg,jpeg,png|max:10000',
             ]);
             $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
             $imagen=asset($path);
@@ -139,7 +139,7 @@ class PaquetesController extends Controller
         }
         elseif($request->file('file')){
             $this->validate(request(),[
-                'file'=>'required|mimes:jpg,jpeg,png|max:1000',
+                'file'=>'required|mimes:jpg,jpeg,png|max:10000',
             ]);
             $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
             $imagen=asset($path);
@@ -152,7 +152,7 @@ class PaquetesController extends Controller
         }
         elseif($request->file('file2')){
             $this->validate(request(),[
-                'file2'=>'required|mimes:jpg,jpeg,png|max:1000',
+                'file2'=>'required|mimes:jpg,jpeg,png|max:10000',
             ]);
             $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file2'));
             $imagen=asset($path);
@@ -181,7 +181,7 @@ class PaquetesController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('pass');
+        //$this->authorize('pass');
         //Eliminar Datos
         $paquete = Package::findOrFail($id);
         $paquete->activo = 0;

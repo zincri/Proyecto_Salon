@@ -67,7 +67,6 @@
                         <ul>
                             <li><a href="{{  url('administrador/eventos')  }}"><span class="fa fa-weibo"></span>Eventos</a></li>
                             @if (Auth::user()->rol == "manager")
-                            <li><a href="{{  url('administrador/clientes_organizadores')  }}"><span class="fa fa-weibo"></span>Clientes Organizadores</a></li>
                             <li><a href="{{  url('administrador/paquetes')  }}"><span class="fa fa-archive"></span>Paquetes</a></li>        
                             @endif
                         </ul>

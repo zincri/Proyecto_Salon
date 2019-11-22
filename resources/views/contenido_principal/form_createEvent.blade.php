@@ -13,7 +13,7 @@
                     <div class="flexslider">
                         <ul class="slides">
                             <li data-thumb="{{$datos->foto_secundaria}}">
-                                <div class="thumb-image"> <img src="{{asset ($datos->foto_secundaria)}}" data-imagezoom="true"
+                                <div class="thumb-image"> <img src="{{$datos->foto_secundaria}}" data-imagezoom="true"
                                         class="img-responsive"> </div>
                             </li>   
                         </ul>

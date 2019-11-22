@@ -46,6 +46,8 @@
                                 </div>
                             </div>
                             </form>
+
+                            <a href="{{ url('registrar')}}"><p><small>Registrar Usuario</small><br/></p></a>  
                         </div>
                         <div class="login-footer">
                             <div class="pull-left">

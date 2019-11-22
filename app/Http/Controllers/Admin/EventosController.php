@@ -27,7 +27,11 @@ class EventosController extends Controller
     
     public function index()
     {
-        $datos = Event::where('activo','=','1')->get();
+        if(Auth::user()->rol == "manager"){
+            $datos = Event::where('activo','=','1')->get();
+        }else if(Auth::user()->rol == "employee"){
+            $datos = Event::where('activo','=','1')->where('confirmado','=','1')->get();
+        }
         return view("contenido_admin.eventos.index",['datos'=>$datos]);
     }
 

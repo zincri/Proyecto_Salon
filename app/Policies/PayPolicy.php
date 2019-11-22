@@ -29,6 +29,6 @@ class PayPolicy
         $dato= false;
       }
 
-      return $dato;
+      return true;
     }
 }
