@@ -42,7 +42,10 @@
                             <li>{{$item->precio}}</li>
                             </ul>
                         </h6>
-                    <p class="dish-price"><a href="{{ URL::action('Client\EventosController@show',$item->id)}}">Crear</a></p>
+                        @if (Auth::user()->rol=="client")
+                        <p class="dish-price"><a href="{{ URL::action('Client\EventosController@show',$item->id)}}">Crear</a></p>
+                     
+                        @endif
                     </div>
                 </div>
             </div> 
