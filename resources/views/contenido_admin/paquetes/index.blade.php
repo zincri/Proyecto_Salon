@@ -12,10 +12,11 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-4" style="float: right;">
-                        <a href="{{ URL::action('Admin\PaquetesController@create')}}"><button
+                        <a href=""data-target="#message-box-success-create" data-toggle="modal"><button
                                 class="btn btn-success btn-block"><span class="fa fa-plus"></span> Nuevo
                                 Paquete</button></a>
                     </div>
+                    @include('contenido_admin.paquetes.create')
                 </div>
             </div>
         </div>
@@ -60,12 +61,14 @@
                                             class="btn btn-info"><i class="fa fa-eye"></i></button></a>
                                     &nbsp;
                                     @if ($item->activo == 1)
-                                        <a href="{{URL::action('Admin\PaquetesController@edit',$item->id)}}"><button
+                                        <a href="" data-target="#message-box-info-{{$item->id}}"
+                                            data-toggle="modal" ><button
                                             class="btn btn-warning"><i class="fa fa-edit"></i></button></a>
+                                            @include('contenido_admin.paquetes.edit')
                                         &nbsp;
                                     @endif
                                     @if ($item->activo == 1)
-                                        <a href="{{URL::action('Admin\PaquetesController@destroy',$item->id)}}" 
+                                        <a href="" 
                                             class="profile-control-right" data-target="#message-box-danger-{{$item->id}}"
                                             data-toggle="modal"><button class="btn btn-danger"><i
                                                 class="fa fa-trash-o"></i></button>

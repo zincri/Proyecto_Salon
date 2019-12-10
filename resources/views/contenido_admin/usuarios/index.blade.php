@@ -34,8 +34,9 @@
                     </form> 
                     </div>
                     <div class="col-md-4">
-                            <a href="{{ URL::action('Admin\UsuariosController@create')}}"><button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Nuevo usuario</button></a>
+                            <a href="" data-target="#message-box-success-create" data-toggle="modal"><button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Nuevo usuario</button></a>
                     </div>
+                    @include('contenido_admin.usuarios.create')
                 </div>
                 
             </div>
@@ -57,24 +58,29 @@
                         <div class="profile-data-title">{{$item->rol}}</div>
                     </div>
                     <div class="profile-controls">
-                        <a href="{{ URL::action('Admin\UsuariosController@edit',$item->id)}}" class="profile-control-left"><span class="fa fa-edit"></span></a>
+                        <a href="" class="profile-control-left" data-target="#message-box-info-{{$item->id}}" data-toggle="modal"><span class="fa fa-edit"></span></a>
+                        
+                        
                         <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}" data-toggle="modal"><span class="fa fa-trash-o"></span></a>
+                        
                     </div>
+                    @include('contenido_admin.usuarios.edit')
                     @include('contenido_admin.usuarios.delete')
+                    
                 </div>                                
                 <div class="panel-body">                                    
                     <div class="contact-info">
                         <p><small>Telefono</small><br/>{{$item->telefono}}</p>
                         <p><small>Email</small><br/>{{$item->email}}</p>    
                         @if (Auth::user()->rol=="manager")
-                        <a href="{{ url('administrador/resetpassuser/'.$item->id.'')}}"><p><small>Restablecer contraseña</small><br/></p></a>   
-                        
+                        <a href="" data-target="#message-box-info-reset-{{$item->id}}" data-toggle="modal"><p><small>Restablecer contraseña</small><br/></p></a>   
+                        @include('contenido_admin.usuarios.resetear_pass_user')
                         @endif
                     </div>
                 </div>                                
             </div>
             <!-- END CONTACT ITEM -->
-        </div>    
+        </div>
         @endforeach                 
     </div>
     <div class="row">
