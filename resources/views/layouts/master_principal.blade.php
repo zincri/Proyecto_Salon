@@ -28,17 +28,12 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 	<link rel="icon" href="{{ asset ('favicon.ico') }}" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" id="theme" href="{{ asset ('css/theme-default.css') }}" />
 	<!--Style Menu-->
 	<link href="{{ asset ('css/responsive/responsive.css')}}" rel="stylesheet">
 	<link href="{{ asset ('css/style2.css') }}" rel="stylesheet">
 
 
-	<!-- START PLUGINS -->
-	<script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery-ui.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset ('js/plugins/bootstrap/bootstrap.min.js') }}"></script>
-	<!-- END PLUGINS -->
+	
 
 	
 
@@ -114,9 +109,11 @@
 
 
 
-
-	<script src="{{asset ('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places')}}"></script>
-
+<!-- START PLUGINS -->
+<script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('js/plugins/jquery/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('js/plugins/bootstrap/bootstrap.min.js') }}"></script>
+<!-- END PLUGINS -->
 	<script type='text/javascript' src="{{ asset ('js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
 	<script type='text/javascript' src="{{ asset ('js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 	<script type='text/javascript' src="{{ asset ('js/plugins/jvectormap/jquery-jvectormap-europe-mill-en.js')}}"></script>
@@ -139,20 +136,32 @@
 
 	<script src="{{ asset ('js/simplyCountdown.js') }}"></script>
 
-
+	
 
 	<!-- Main -->
 	<script src="{{ asset ('js/main.js') }}"></script>
 
-
-	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-colorpicker.js')}}"></script>
-	<script type="text/javascript" src="{{asset('js/plugins/bootstrap/bootstrap-datepicker.js')}}"></script>
 	
-	<!-- END THIS PAGE PLUGINS -->
 
-	<script type="text/javascript" src="{{asset('js/plugins.js')}}"></script>
+	<!-- THIS PAGE PLUGINS -->
+	<script type='text/javascript' src='{{asset('js/plugins/icheck/icheck.min.js')}}'></script>
+	<script type="text/javascript" src="{{asset('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
 
+	<script type='text/javascript' src="{{ asset('js/plugins/bootstrap/bootstrap-datepicker.js')}}"></script>                
+        
+	<script type='text/javascript' src="{{ asset('js/plugins/bootstrap/bootstrap-timepicker.min.js')}}"></script>                
+	<script type='text/javascript' src="{{ asset('js/plugins/daterangepicker/daterangepicker.js')}}"></script>                
+	
+	<script type="text/javascript" src="{{ asset('js/plugins/owl/owl.carousel.min.js')}}"></script>                 
+	
+	<script type="text/javascript" src="{{ asset('js/plugins/moment.min.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/daterangepicker/daterangepicker.js')}}"></script>
+	<!-- END THIS PAGE PLUGINS -->   
+
+
+	<script type="text/javascript" src="{{ asset('js/plugins.js')}}"></script>        
+	<script type="text/javascript" src="{{ asset('js/actions.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('js/demo_dashboard.js')}}"></script>
 </body>
 
 </html>

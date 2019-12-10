@@ -58,6 +58,10 @@
                                     </div>
                                 </div>
 
+                                @if (Auth::user()->rol == "manager")
+                                    
+                                    
+                                
                                 <div class="form-group {{$errors->has('rol') ? 'has-error':''}}">
                                     <label class="col-md-3 col-xs-12 control-label">Rol del Usuario</label>
                                     <div class="col-md-6 col-xs-12">                                                                                            
@@ -81,6 +85,7 @@
                                         {!! $errors->first('rol','<span class="help-block">:message</span>')!!}
                                     </div>
                                 </div>
+                                @endif
 
                                 <div class="form-group {{$errors->has('telefono') ? 'has-error':''}}">
                                     <label class="col-md-3 col-xs-12 control-label">Telefono</label>

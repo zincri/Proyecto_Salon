@@ -51,7 +51,7 @@
 
                                 <div class="form-group {{$errors->has('file2') ? 'has-error':''}}">
 
-                                        <label class="col-md-3 col-xs-12 control-label">Imagen Principal</label>
+                                        <label class="col-md-3 col-xs-12 control-label">Imagen Secundaria</label>
                                         <div class="col-md-6 col-xs-12">                               
                                                 <div class="form-group">
                                                     <div class="col-md-12">

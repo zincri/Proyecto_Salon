@@ -29,8 +29,15 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $datos = User::where('activo', '=', '1')->get();
-        return view("contenido_admin.usuarios.index",['datos'=>$datos]);
+        if(Auth::user()->rol!="manager"){
+            return Redirect::to('administrador/dashboard');
+        }
+        else{
+
+            $datos = User::where('activo', '=', '1')->get();
+            return view("contenido_admin.usuarios.index",['datos'=>$datos]);
+        }
+        
     }
 
     /**
@@ -111,6 +118,7 @@ class UsuariosController extends Controller
     public function update(Request $request, $id)
     {
         //Aqui actualizamos todo
+        if(Auth::user()->rol=="manager"){
         $credentials=$this->validate(request(),[
             'apellido_paterno' => 'required|string',
             'apellido_materno'=>'required',
@@ -133,6 +141,32 @@ class UsuariosController extends Controller
         $usuario->update();
 
         return Redirect::to('administrador/usuarios');
+        }
+        else{
+            $credentials=$this->validate(request(),[
+                'apellido_paterno' => 'required|string',
+                'apellido_materno'=>'required',
+                'edad'=>'required',
+                //'rol'=>'required',
+                'nombre'=>'required|string|max:50',
+                'email' => 'required|string|email|max:50',
+                'telefono'=>'required|string|max:10',
+            ]);
+    
+            $usuario = User::findOrFail($id);
+            $usuario->name = $request->get('nombre');
+            $usuario->email = $request->get('email');
+            $usuario->activo = 1;
+            //$usuario->rol = $request->get('rol');
+            $usuario->apellido_paterno = $request->get('apellido_paterno');
+            $usuario->apellido_materno = $request->get('apellido_materno');
+            $usuario->edad = $request->get('edad');
+            $usuario->telefono = $request->get('telefono');
+            $usuario->update();
+    
+            return Redirect::to('administrador/usuarios');
+
+        }
     }
 
     /**

@@ -15,7 +15,20 @@ use Illuminate\Support\Facades\Session;
 /** Usuario*/
 Route::get('usuario/paquete','Client\GeneralController@paquetes');
 Route::get('usuario/contacto','Client\GeneralController@contacto');
-Route::resource('/','Client\GeneralController');
+Route::get('/', function () {
+    if(Auth::check()){
+        if (Auth::user()->rol == "manager" || Auth::user()->rol == "employee"){
+            return redirect('administrador/dashboard');
+        }/*
+        elseif(Auth::user()->rol == "employee"){
+            return redirect('administrador/empleado');
+        }*/
+        elseif(Auth::user()->rol == "client"){
+            return redirect('sesion');
+        }
+    }
+    return view('contenido_usuario.inicio');
+});
 
 /** Cliente*/
 
