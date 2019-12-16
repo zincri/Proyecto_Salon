@@ -58,7 +58,6 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Administración</span></a>
                         <ul>
-                            <li><a href="{{  url('administrador/gastos')  }}"><span class="fa fa-money"></span> Gastos</a></li>
                             <li><a href="{{  url('administrador/abonos')  }}"><span class="fa fa-money"></span> Abonos</a></li>                  
                         </ul>
                     </li>

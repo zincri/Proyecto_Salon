@@ -61,9 +61,12 @@
                                     class="btn btn-warning"><i class="fa fa-image"></i></button></a>
                                 &nbsp;
                                 
-                                <a href="{{ URL::action('Admin\AbonosController@edit',$item->id)}}"><button
+                                <a href=""
+                                        data-target="#message-box-success-create-{{$item->id}}"
+                                        data-toggle="modal"><button
                                     class="btn btn-success"><i class="fa fa-money"></i></button></a>
                                 &nbsp;
+                                @include('contenido_admin.abonos.create')
                             </td>
                             
                         </tr>

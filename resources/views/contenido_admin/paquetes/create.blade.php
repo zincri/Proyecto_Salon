@@ -1,9 +1,12 @@
-@extends ('layouts.master_admin')
+<div class="message-box message-box-success animated fadeIn" id="message-box-success-create">
 
-@section ('content')
+
 {!!Form::open(array('url'=>'administrador/paquetes','method'=>'POST','autocomplete'=>'off', 'files' => 'true'))!!}
 {{Form::token()}}
 
+<div class="mb-container">
+        <div class="mb-middle">
+            <div class="mb-content">
                 <div class="form-horizontal">
                 <div class="panel panel-default">
                                 
@@ -74,11 +77,17 @@
                                         </div>
                                 </div>
 
-                                <div class="panel-footer">                                   
-                                    <button class="btn btn-primary pull-right" type="submit">Guardar</button>
-                                </div>
+                                <div class="mb-footer">
+                                        <button class="btn btn-primary btn-lg pull-right" type="submit">Guardar</button>
+                                        &nbsp;
+                                        <button class="btn btn-default btn-lg pull-right" type="button"
+                                            data-dismiss="modal">Cancelar</button>
+                                    </div>
                  </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
 {!!Form::close()!!}	
-
-@endsection
+</div>
