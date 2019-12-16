@@ -65,11 +65,13 @@
                                     class="btn btn-warning"><i class="fa fa-image"></i></button></a>
                                 &nbsp;
                                 @endif
+                                @if( $item->confirmado==1)
                                 <a href=""
                                         data-target="#message-box-success-create-{{$item->id}}"
                                         data-toggle="modal"><button
                                     class="btn btn-success"><i class="fa fa-money"></i></button></a>
                                 &nbsp;
+                                @endif
                                 @include('contenido_admin.abonos.create')
                                 @include('contenido_admin.eventos.editPrecio')
                             </td>

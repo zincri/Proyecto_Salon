@@ -67,7 +67,7 @@ class PaquetesController extends Controller
         $paquete->foto_principal = $imagen;
         $paquete->foto_secundaria = $imagen2;
         $paquete->precio = $request->get('precio');
-        $paquete->activo = ($request->get('activo')) ? '0' : '1';
+        $paquete->activo = ($request->get('activo')!= null ) ? 0 : 1;
         $paquete->save();
         return Redirect::to('administrador/paquetes');
     }
