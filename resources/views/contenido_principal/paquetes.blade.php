@@ -31,7 +31,7 @@
         </div>
         <div class="row col-12">
             @foreach ($datos as $item)
-                
+
             <div class="col-12 col-xl-12 col-sm-6 col-md-4">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
                 <img src="{{ asset ($item->foto_principal) }}" alt="">
@@ -44,11 +44,11 @@
                         </h6>
                         @if (Auth::user()->rol=="client")
                         <p class="dish-price"><a href="{{ URL::action('Client\EventosController@show',$item->id)}}">Crear</a></p>
-                     
+
                         @endif
                     </div>
                 </div>
-            </div> 
+            </div>
             @endforeach
         </div>
     </div>

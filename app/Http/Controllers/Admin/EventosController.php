@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Organizer;
 use App\Event;
+use App\User;
 use App\Gallery;
 use App\Package;
+use Mail;
 use Illuminate\Support\Facades\Auth;
 
 class EventosController extends Controller
@@ -24,11 +25,11 @@ class EventosController extends Controller
         $this->middleware('auth');
     }
 
-    
+
     public function index()
     {
         if(Auth::user()->rol == "manager"){
-            $datos = Event::where('activo','=','1')->get();
+            $datos = Event::where('activo','=','1')->orderBy('fecha','asc')->get();
         }else if(Auth::user()->rol == "employee"){
             $datos = Event::where('activo','=','1')->where('confirmado','=','1')->get();
         }
@@ -40,8 +41,29 @@ class EventosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function updatePrecio(Request $request, $id)
     {
+        $credentials=$this->validate(request(),[
+            'precio'=>'required|string|max:10',
+        ]);
+        $event = Event::findOrFail($id);
+        $event->precio = $request->precio;
+        $event->update();
+        return Redirect::to('/administrador/eventos');
+    }
+
+    public function contact(Request $request,$id){
+
+        $event = Event::find($id);
+        $user = User::find($event->cliente_id);
+        $subject = "Motivo de declinación del evento";
+        $for = $user->name;
+        Mail::send('email',$request->all(), function($msj) use($subject,$for){
+            $msj->from("jhoanadominguez97@gmail.com","Jhoana Domínguez");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+        return redirect()->back();
     }
     /*
     public function crearabono($id)
@@ -93,7 +115,7 @@ class EventosController extends Controller
     {
         $datos = Event::find($id);
         $galeria = Gallery::where('activo','=','1')->where('evento_id','=',$id)->get();
-        
+
         return view("contenido_admin.eventos.show",['datos'=>$datos,'galeria'=>$galeria]);
     }
 
@@ -107,7 +129,7 @@ class EventosController extends Controller
     {
         $datos = Event::find($id);
         $paquete = Package::find($datos->paquete_id);
-       
+
         return view('contenido_admin.eventos.edit',['id'=>$id,'paquete'=>$paquete]);
     }
 
@@ -130,6 +152,7 @@ class EventosController extends Controller
         $event->update();
         return Redirect::to('administrador/eventos');
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -48,8 +48,6 @@ class PaquetesController extends Controller
      */
     public function store(Request $request)
     {
-        //$this->authorize('pass');
-
         $credentials=$this->validate(request(),[
             'nombre'=>'required|string|max:30',
             'descripcion'=>'required|string|max:1000',
@@ -57,7 +55,7 @@ class PaquetesController extends Controller
             'file2'=>'required|mimes:jpg,jpeg,png|max:10000',
             'precio'=>'required|string|max:10',
         ]);
-        $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
+       $path = Storage::disk('public')->put('imgupload/paquetes', $request->file('file'));
         $imagen=asset($path);
 
         $path2 = Storage::disk('public')->put('imgupload/paquetes', $request->file('file2'));
@@ -69,7 +67,7 @@ class PaquetesController extends Controller
         $paquete->foto_principal = $imagen;
         $paquete->foto_secundaria = $imagen2;
         $paquete->precio = $request->get('precio');
-        $paquete->activo = 1;
+        $paquete->activo = ($request->get('activo')) ? '0' : '1';
         $paquete->save();
         return Redirect::to('administrador/paquetes');
     }

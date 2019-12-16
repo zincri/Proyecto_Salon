@@ -60,6 +60,8 @@ Route::get('/administrador/empleado', function () {
 });
 
 Route::resource('/administrador/eventos','Admin\EventosController');
+Route::post('/administrador/eventos/editPrecio/{id}','Admin\EventosController@updatePrecio');
+Route::post('/administrador/eventos/{id}/contact','Admin\EventosController@contact');
 Route::resource('/administrador/clientes_organizadores','Admin\ClientesOrganizadoresController');
 Route::resource('/administrador/paquetes','Admin\PaquetesController');
 Route::resource('/administrador/usuarios','Admin\UsuariosController');

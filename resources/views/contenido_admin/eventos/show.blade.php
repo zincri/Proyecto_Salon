@@ -63,8 +63,8 @@
             </div>
 
         </div>
-        
-        
+
+
 
     </div>
     <div class="row">
@@ -91,9 +91,14 @@
     <div class="panel-footer">
         @if ($datos->confirmado == 0)
         <a href="{{URL::action('Admin\EventosController@edit',$datos->id)}}"><button
-            class="btn btn-primary pull-right">Confirmar Evento</button></a>    
+            class="btn btn-primary pull-right">Confirmar Evento</button></a>
+
+         <a href="" data-target="#message-box-info-contact-{{$datos->id}}" data-toggle="modal"><button
+            class="btn btn-primary pull-right">Declinar Evento</button></a>
+
+            @include('contenido_admin.eventos.send_mail')
         @endif
-        
+
     </div>
     <br>
     @endsection
