@@ -202,7 +202,7 @@ class EventosController extends Controller
         
         $fotos = Gallery::where('evento_id','=',$id)->where('activo','=','1')->get();
         
-        if (empty($fotos)==false){
+        if (empty($fotos)==true){
         $evento = Event::findOrFail($id);
         $evento->activo = 0;
         $evento->update();
@@ -211,6 +211,7 @@ class EventosController extends Controller
         else{
            return back()->withErrors(['erroregistro'=> trans('El evento no se puede eliminar ya que contiene fotos')]);
         }
+        
         
     }
 }
