@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Gallery;
-
+use App\User;
 class GaleriaController extends Controller
 {
     /**
@@ -99,12 +99,24 @@ class GaleriaController extends Controller
     public function destroy($id)
     {
         $image=Gallery::find($id);
-        if(Auth::user()->id==$image->usuario_id){
+
+        if(Auth::user()->id==$image->usuario_id ){
+            //verificar que su rol sea gerente
             $image->activo = 0;
             $image->update();
             return Redirect::to('administrador/eventos');
         }
         else{
+            //if -verificar que el rol sea gerente si es asi y si el id de la imagen coincide con un id de usuario que sea de tipo empleado lo elimina
+            //else - en caso de que no ,no es gerente no eliminar
+            $user=User::find($image->usuario_id);
+
+            if(Auth::user()->rol=='manager' && $user->rol == 'employee'){
+
+                $image->activo = 0;
+                $image->update();
+                return Redirect::to('administrador/eventos');
+            }
             return back()->withErrors(['erroregistro'=> trans('Error.')]);
         }
     }

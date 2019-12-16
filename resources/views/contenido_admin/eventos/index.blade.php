@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    
+
                 </div>
             </div>
         </div>
@@ -56,19 +56,25 @@
                                 <a href="{{URL::action('Admin\EventosController@show',$item->id)}}"><button
                                         class="btn btn-info"><i class="fa fa-eye"></i></button></a>
                                 &nbsp;
+                                <a href="" data-target="#message-box-info-editPrecio-{{$item->id}}" data-toggle="modal"><button
+                                    class="btn btn-primary"><i class="fa fa-pencil"></i></button></a>
+                                &nbsp;
 
+                                @if($item->fecha <= now() && $item->confirmado==1)
                                 <a href="{{ url('administrador/uploadimage/'.$item->id.'')}}"><button
                                     class="btn btn-warning"><i class="fa fa-image"></i></button></a>
                                 &nbsp;
-                                
+                                @endif
                                 <a href=""
                                         data-target="#message-box-success-create-{{$item->id}}"
                                         data-toggle="modal"><button
                                     class="btn btn-success"><i class="fa fa-money"></i></button></a>
                                 &nbsp;
                                 @include('contenido_admin.abonos.create')
+                                @include('contenido_admin.eventos.editPrecio')
                             </td>
-                            
+
+
                         </tr>
                         @endforeach
                     </tbody>

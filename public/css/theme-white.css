@@ -2203,7 +2203,7 @@ ul.panel-controls > li > .dropdown-menu:before {
 }
 input[type=radio],
 input[type=checkbox] {
-  margin: 2px 0px 0px;
+  margin: 10px;
 }
 .checkbox.pull-left,
 .checkbox.pull-right,
@@ -3358,13 +3358,13 @@ td.dataTables_empty {
 }
 .widget.widget-default {
   background: #ffffff;
-   
-   
-   
-   
-   
-   
-   
+
+
+
+
+
+
+
 }
 .widget.widget-primary {
   background: #1e293d;
@@ -4659,7 +4659,7 @@ td.dataTables_empty {
   width: 50%;
   left: 25%;
   position: relative;
-  color: #FFF;
+  color: #000000;
 }
 .message-box .mb-container .mb-middle .mb-title {
   width: 100%;

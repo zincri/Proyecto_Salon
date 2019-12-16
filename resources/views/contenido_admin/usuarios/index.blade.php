@@ -2,17 +2,17 @@
 
 @section ('content')
 <!-- PAGE TITLE -->
-<div class="page-title">                    
+<div class="page-title">
     <h2><span class="fa fa-users"></span> Lista de Usuarios <small>4 usuarios</small></h2>
 </div>
-<!-- END PAGE TITLE -->                
+<!-- END PAGE TITLE -->
 
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
-    
+
     <div class="row">
         <div class="col-md-12">
-            
+
             <div class="panel panel-default">
                 <div class="panel-body">
                     <p>Usa la barra buscadora para encontrar a los usuarios.</p>
@@ -31,19 +31,19 @@
                                 </div>
                             </div>
                         </div>
-                    </form> 
+                    </form>
                     </div>
                     <div class="col-md-4">
                             <a href="" data-target="#message-box-success-create" data-toggle="modal"><button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Nuevo usuario</button></a>
                     </div>
                     @include('contenido_admin.usuarios.create')
                 </div>
-                
+
             </div>
-            
+
         </div>
     </div>
-    
+
     <div class="row">
         @foreach ($datos as $item)
         <div class="col-md-3">
@@ -59,29 +59,29 @@
                     </div>
                     <div class="profile-controls">
                         <a href="" class="profile-control-left" data-target="#message-box-info-{{$item->id}}" data-toggle="modal"><span class="fa fa-edit"></span></a>
-                        
-                        
+
+
                         <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}" data-toggle="modal"><span class="fa fa-trash-o"></span></a>
-                        
+
                     </div>
                     @include('contenido_admin.usuarios.edit')
                     @include('contenido_admin.usuarios.delete')
-                    
-                </div>                                
-                <div class="panel-body">                                    
+
+                </div>
+                <div class="panel-body">
                     <div class="contact-info">
                         <p><small>Telefono</small><br/>{{$item->telefono}}</p>
-                        <p><small>Email</small><br/>{{$item->email}}</p>    
+                        <p><small>Email</small><br/>{{$item->email}}</p>
                         @if (Auth::user()->rol=="manager")
-                        <a href="" data-target="#message-box-info-reset-{{$item->id}}" data-toggle="modal"><p><small>Restablecer contraseña</small><br/></p></a>   
+                        <a href="" data-target="#message-box-info-reset-{{$item->id}}" data-toggle="modal"><p><small>Restablecer contraseña</small><br/></p></a>
                         @include('contenido_admin.usuarios.resetear_pass_user')
                         @endif
                     </div>
-                </div>                                
+                </div>
             </div>
             <!-- END CONTACT ITEM -->
         </div>
-        @endforeach                 
+        @endforeach
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -90,12 +90,12 @@
                 <li class="active"><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>                                    
+                <li><a href="#">4</a></li>
                 <li><a href="#">»</a></li>
-            </ul>                            
+            </ul>
         </div>
     </div>
 
 </div>
-<!-- END PAGE CONTENT WRAPPER -->    
+<!-- END PAGE CONTENT WRAPPER -->
 @endsection
