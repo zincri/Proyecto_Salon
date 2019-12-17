@@ -107,7 +107,10 @@ class GaleriasController extends Controller
         if(Auth::user()->id==$image->usuario_id){
             $image->activo = 0;
             $image->update();
-            return Redirect::to('eventos');
+            //para poder regresar al index de la galeria del evento.
+            $evento_id = $image->evento_id;
+            //http://proyecto.test/administrador/uploadimage/{id}
+            return Redirect::to('eventos/galeria/'.$evento_id);
         }
         else{
             return back()->withErrors(['erroregistro'=> trans('Error.')]);

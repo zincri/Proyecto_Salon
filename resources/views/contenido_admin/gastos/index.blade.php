@@ -39,6 +39,7 @@
                             <th>Nombre del Gasto</th>
                             <th>Monto</th>
                             <th>Concepto</th>
+                            <th>Causa</th>
                             <th>Fecha</th>
                             <th>Gastador</th>
                             <th>Acciones</th>
@@ -50,16 +51,14 @@
                             <td>{{$item->nombre}}</td>
                             <td>{{$item->monto}}</td>
                             <td>{{$item->concepto}}</td>
+                            <td>{{$item->causa}}</td>
                             <td>{{$item->fecha}}</td>
-                            <td>{{$item->concepto}}</td>
+                            <td>{{$item->user->name}}</td>
                             <td>
                                     <a href="{{URL::action('Admin\GastosController@show',44)}}"><button
                                             class="btn btn-info"><i class="fa fa-eye"></i></button></a>
                                     &nbsp;
-                                    <a href="{{URL::action('Admin\GastosController@edit',44)}}"><button
-                                            class="btn btn-warning"><i class="fa fa-edit"></i></button></a>
-                                    &nbsp;
-                                    <a href="" class="profile-control-right" data-target="#message-box-danger-44"
+                                    <a href="" class="profile-control-right" data-target="#message-box-danger-{{$item->id}}"
                                         data-toggle="modal"><button class="btn btn-danger"><i
                                                 class="fa fa-trash-o"></i></button></a>
                                 </td>

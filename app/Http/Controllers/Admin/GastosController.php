@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Expense;
+use Illuminate\Support\Facades\Auth;
 
 class GastosController extends Controller
 {
@@ -22,7 +23,7 @@ class GastosController extends Controller
 
     public function index()
     {
-        $datos = Expense::all();
+        $datos = Expense::where('activo', '=', '1')->get();
         return view("contenido_admin.gastos.index",['datos'=>$datos]);
     }
 
@@ -44,6 +45,24 @@ class GastosController extends Controller
      */
     public function store(Request $request)
     {
+        $credentials=$this->validate(request(),[
+            'nombre' => 'required|string',
+            'monto' => 'required|string',
+            'concepto'=>'required',
+            'causa'=>'required',
+            'fecha'=>'required'
+        ]);
+        $gasto = new Expense($request->all());
+        $gasto->activo=1;
+        $gasto->gastador_id = Auth::user()->id;
+        /*
+        $gasto->nombre = $request->nombre;
+        $gasto->monto = $request->monto;
+        $gasto->concepto = $request->concepto;
+        $gasto->causa = $request->causa;
+        $gasto->fecha = $request->fecha;
+        */
+        $gasto->save();
         return Redirect::to('administrador/gastos');
     }
 
@@ -90,6 +109,9 @@ class GastosController extends Controller
      */
     public function destroy($id)
     {
+        $gasto = Expense::findOrFail($id);
+        $gasto->activo = 0;
+        $gasto->update();
         return Redirect::to('administrador/gastos');
     }
 }

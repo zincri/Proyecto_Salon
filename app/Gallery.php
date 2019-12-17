@@ -10,12 +10,12 @@ class Gallery extends Model
 
     public function user()
     {
-        return $this->hasOne('App\User', 'id');
+        return $this->belongsTo('App\User', 'usuario_id');
     }
 
     public function event()
     {
-        return $this->hasOne('App\Event', 'id');
+        return $this->belongsTo('App\Event', 'evento_id');
     }
 
 }

@@ -23,11 +23,11 @@
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
-                        <a href="index.html">Perfil</a>
-                        <a href="#" class="x-navigation-control"></a>
+                        <a href="">Perfil</a>
+                        <a href="" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-profile">
-                        <a href="#" class="profile-mini">
+                        <a href="" class="profile-mini">
                             <img src="assets/images/users/avatar.jpg" alt="Gerente"/>
                         </a>
                         <div class="profile">
@@ -111,8 +111,8 @@
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
                 <div class="mb-middle">
-                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
+                    <div class="mb-title"style="color:#f7eeee;"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content"style="color:#f7eeee;">
                         <p>¿Estas seguro que quieres salir?</p>                    
                         <p>Preciona "No" si deseas continuar trabajando. Preciona "Si" si deseas cerrar tu sesion.</p>
                     </div>

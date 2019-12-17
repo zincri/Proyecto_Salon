@@ -59,6 +59,7 @@
                         <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Administración</span></a>
                         <ul>
                             <li><a href="{{  url('administrador/abonos')  }}"><span class="fa fa-money"></span> Abonos</a></li>
+                            <li><a href="{{  url('administrador/gastos')  }}"><span class="fa fa-money"></span> Gastos</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
@@ -172,10 +173,10 @@
 
         <!-- MESSAGE BOX-->
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
+            <div class="mb-container" >
                 <div class="mb-middle">
-                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
+                    <div class="mb-title" style="color:#f7eeee;"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content"style="color:#f7eeee;">
                         <p>¿Estas seguro que quieres salir?</p>
                         <p>Preciona "No" si deseas continuar trabajando. Preciona "Sí" si deseas cerrar tu sesion.</p>
                     </div>

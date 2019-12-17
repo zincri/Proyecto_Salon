@@ -104,7 +104,11 @@ class GaleriaController extends Controller
             //verificar que su rol sea gerente
             $image->activo = 0;
             $image->update();
-            return Redirect::to('administrador/eventos');
+
+            //para poder regresar al index de la galeria del evento.
+            $evento_id = $image->evento_id;
+            //http://proyecto.test/administrador/uploadimage/{id}
+            return Redirect::to('administrador/uploadimage/'.$evento_id);
         }
         else{
             //if -verificar que el rol sea gerente si es asi y si el id de la imagen coincide con un id de usuario que sea de tipo empleado lo elimina
@@ -115,7 +119,12 @@ class GaleriaController extends Controller
 
                 $image->activo = 0;
                 $image->update();
-                return Redirect::to('administrador/eventos');
+
+
+                //para poder regresar al index de la galeria del evento.
+                $evento_id = $image->evento_id;
+                //http://proyecto.test/administrador/uploadimage/{id}
+                return Redirect::to('administrador/uploadimage/'.$evento_id);
             }
             return back()->withErrors(['erroregistro'=> trans('Error.')]);
         }
