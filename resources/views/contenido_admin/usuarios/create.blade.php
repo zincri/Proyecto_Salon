@@ -1,9 +1,11 @@
 <div class="message-box message-box-success animated fadeIn" id="message-box-success-create">
 
 
-    {!!Form::open(array('url'=>'administrador/usuarios','method'=>'POST','autocomplete'=>'off'))!!}
-    {{Form::token()}}
-    <div class="mb-container">
+    {{-- {!!Form::open(array('action'=>'administrador/usuarios','method'=>'POST','autocomplete'=>'off','onsubmit'=>''))!!}
+    {{Form::token()}} --}}
+    <form method="POST" action="" id="form" name="form" onSubmit="enviarDatos();">
+        @csrf
+        <div class="mb-container">
             <div class="mb-middle">
                 <div class="mb-content">
             <div class="form-horizontal">
@@ -133,7 +135,8 @@
                         </div>
 
                         <div class="mb-footer">
-                            <button class="btn btn-primary btn-lg pull-right" type="submit">Guardar</button>
+                            <button class="btn btn-primary btn-lg pull-right" type="submit"
+                            >Guardar</button>
                             &nbsp;
                             <button class="btn btn-default btn-lg pull-right" type="button"
                                 data-dismiss="modal">Cancelar</button>
@@ -144,5 +147,6 @@
         </div>
     </div>
 </div>
-{!!Form::close()!!}
+</form>
+{{-- {!!Form::close()!!} --}}
 </div>

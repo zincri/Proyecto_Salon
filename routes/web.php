@@ -65,6 +65,7 @@ Route::post('/administrador/eventos/{id}/contact','Admin\EventosController@conta
 Route::resource('/administrador/clientes_organizadores','Admin\ClientesOrganizadoresController');
 Route::resource('/administrador/paquetes','Admin\PaquetesController');
 Route::resource('/administrador/usuarios','Admin\UsuariosController');
+Route::get('/administrador/usuariosall','Admin\UsuariosController@getUsuarios');
 Route::resource('/administrador/abonos','Admin\AbonosController');
 Route::resource('/administrador/gastos','Admin\GastosController');
 Route::get('administrador/resetpass','Admin\UsuariosController@resetpass')->name('resetpass');

@@ -72,6 +72,7 @@ class EventosController extends Controller
             'fecha'=>'required',
             'paquete_id'=>'required',
         ]);
+        if($request->get('fecha')>=now()){
         
         $evento = new Event;
         $evento->nombre = $request->get('nombre');
@@ -86,7 +87,11 @@ class EventosController extends Controller
         $evento->cliente_id = Auth::user()->id;
         $evento->anfitrion = Auth::user()->id;
         $evento->save();
-        return  Redirect::to('paquete');
+        return  Redirect::to('eventos');
+        }
+        else{
+            return back()->withErrors(['erroregistrofecha'=> trans('La fecha debe ser mayor a hoy.')]);
+         }
         
     }
 
@@ -152,6 +157,7 @@ class EventosController extends Controller
             'fecha'=>'required',
             'paquete_id'=>'required',
         ]);
+        if($request->get('fecha')>=now()){
        if( $request->file('url_imagen_principal')){ 
         
         $credentials=$this->validate(request(),[
@@ -189,6 +195,10 @@ class EventosController extends Controller
         $evento->update();
         return  Redirect::to('eventos');
     }
+    }
+    else{
+        return back()->withErrors(['erroregistrofecha'=> trans('La fecha debe ser mayor a hoy.')]);
+     }
     }
 
     /**

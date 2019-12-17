@@ -115,8 +115,9 @@ class EventosController extends Controller
     {
         $datos = Event::find($id);
         $galeria = Gallery::where('activo','=','1')->where('evento_id','=',$id)->get();
-
-        return view("contenido_admin.eventos.show",['datos'=>$datos,'galeria'=>$galeria]);
+        $user = User::find($datos->cliente_id);
+        
+        return view("contenido_admin.eventos.show",['datos'=>$datos,'galeria'=>$galeria,'user'=>$user]);
     }
 
     /**

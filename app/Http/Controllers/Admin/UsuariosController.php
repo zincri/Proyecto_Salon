@@ -36,9 +36,26 @@ class UsuariosController extends Controller
 
             $datos = User::where('activo', '=', '1')->get();
             return view("contenido_admin.usuarios.index",['datos'=>$datos]);
+            //return response()->json($datos,201);
         }
         
     }
+
+    public function getUsuarios()
+    {
+        if(Auth::user()->rol!="manager"){
+            return Redirect::to('administrador/dashboard');
+        }
+        else{
+
+            $datos = User::where('activo', '=', '1')->get();
+            //return view("contenido_admin.usuarios.index",['datos'=>$datos]);
+            return response()->json($datos,200);
+        }
+        
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -82,6 +99,7 @@ class UsuariosController extends Controller
         $usuario->edad = $request->get('edad');
         $usuario->telefono = $request->get('telefono');
         $usuario->save();
+        //return response()->json($usuario,201);
         return Redirect::to('administrador/usuarios');
     }
 
