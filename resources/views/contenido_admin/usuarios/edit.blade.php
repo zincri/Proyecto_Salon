@@ -109,7 +109,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" class="form-control" id="email" name="email"
+                                        <input type="text" class="form-control" name="email"
                                             value="{{$item->email}}" />
                                     </div>
                                     {!! $errors->first('email','<span class="help-block">:message</span>')!!}

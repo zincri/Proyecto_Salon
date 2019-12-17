@@ -2,6 +2,11 @@
 
 @section('content')
 <div style="background-color:burlywood;">
+    {!! $errors->first('erroregistrofecha','
+            <div class="alert alert-danger">
+                <strong>:message</strong>
+            </div>
+            ')!!}
     <div class="page-content-wrap">
 
         <div class="row">
@@ -47,7 +52,7 @@
                                                 name="url_imagen_principal" value="{{$datos->foto_principal}}" />
 
                                             <div class="form-group {{$errors->has('descripcion') ? 'has-error':''}}">
-                                                <label class="col-md-3 control-label">Descripcion del Paquete</label>
+                                                <label class="col-md-3 control-label">Descripcion del evento</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span
@@ -62,7 +67,7 @@
                                             </div>
 
                                             <div class="form-group {{$errors->has('nombre') ? 'has-error':''}}">
-                                                <label class="col-md-3 control-label">Nombre del Paquete</label>
+                                                <label class="col-md-3 control-label">Nombre del evento</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span

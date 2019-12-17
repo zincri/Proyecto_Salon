@@ -4650,7 +4650,7 @@ td.dataTables_empty {
 .message-box .mb-container {
   position: absolute;
   left: 0px;
-  top: 15%;
+  top: 0%;
   background: rgba(0, 0, 0, 0.9);
   padding: 20px;
   width: 100%;

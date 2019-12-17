@@ -1,6 +1,12 @@
 @extends ('layouts.master_cliente')
 
 @section ('content')
+
+{!! $errors->first('erroregistrofecha','
+            <div class="alert alert-danger">
+                <strong>:message</strong>
+            </div>
+            ')!!}
 {!!Form::open(array('action'=>['Client\EventosController@update',$datos->id],'method'=>'PATCH','autocomplete'=>'off','files'
 => 'true'))!!}
 {{Form::token()}}

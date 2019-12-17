@@ -11,6 +11,11 @@
     <strong>No se puede eliminar!</strong>
 </div>
 ')!!}
+{!! $errors->first('erroregistrofecha','
+<div class="alert alert-danger">
+    <strong>:message</strong>
+</div>
+')!!}
 <div class="row">
     <div class="col-md-12">
         <!-- START DEFAULT DATATABLE -->

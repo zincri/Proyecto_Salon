@@ -12,7 +12,7 @@
 
         <!-- CSS INCLUDE -->
         <link rel="stylesheet" type="text/css" id="theme" href="{{asset('css/theme-white.css')}}"/>
-
+        
         <!-- EOF CSS INCLUDE -->
     </head>
     <body>
@@ -24,11 +24,11 @@
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
-                        <a href="administrador/">ADMINISTRADOR</a>
-                        <a href="#" class="x-navigation-control"></a>
+                        <a href="">ADMINISTRADOR</a>
+                        <a href="" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-profile">
-                        <a href="#" class="profile-mini">
+                        <a href="" class="profile-mini">
                             <img src="{{asset('assets/images/users/avatar.jpg')}}" alt="Gerente"/>
                         </a>
                         <div class="profile">
@@ -210,6 +210,7 @@
         <script type="text/javascript" src="{{ asset('js/plugins/bootstrap/bootstrap.min.js')}}"></script>
         <!-- END PLUGINS -->
 
+        @yield('scripts')
         <!-- START THIS PAGE PLUGINS-->
         <script type='text/javascript' src="{{ asset('js/plugins/icheck/icheck.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
@@ -241,6 +242,7 @@
 
         <script type="text/javascript" src="{{ asset('js/demo_dashboard.js')}}"></script>
         <!-- END TEMPLATE -->
+        
     <!-- END SCRIPTS -->
     </body>
 </html>
