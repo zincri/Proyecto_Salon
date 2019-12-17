@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Expense;
+use Illuminate\Support\Facades\Auth;
 
 class GastosController extends Controller
 {
@@ -44,6 +45,24 @@ class GastosController extends Controller
      */
     public function store(Request $request)
     {
+        $credentials=$this->validate(request(),[
+            'nombre' => 'required|string',
+            'monto' => 'required|string',
+            'concepto'=>'required',
+            'causa'=>'required',
+            'fecha'=>'required'
+        ]);
+        $gasto = new Expense($request->all());
+        $gasto->activo=1;
+        $gasto->gastador_id = Auth::user()->id;
+        /*
+        $gasto->nombre = $request->nombre;
+        $gasto->monto = $request->monto;
+        $gasto->concepto = $request->concepto;
+        $gasto->causa = $request->causa;
+        $gasto->fecha = $request->fecha;
+        */
+        $gasto->save();
         return Redirect::to('administrador/gastos');
     }
 
