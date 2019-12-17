@@ -25,7 +25,7 @@ class Event extends Model
 
     public function client()
     {
-        return $this->hasOne('App\User', 'id');
+        return $this->belongsTo('App\User', 'cliente_id');
     }
 
     public function manager()
@@ -34,10 +34,14 @@ class Event extends Model
     }
     public function packages()
     {
-        return $this->hasOne('App\Package', 'id');
+        return $this->belongsTo('App\Package', 'paquete_id');
     }
     public function pays()
     {
         return $this->hasMany('App\Pay', 'evento_id');
+    }
+    public function images()
+    {
+        return $this->hasMany('App\Gallery', 'evento_id');
     }
 }

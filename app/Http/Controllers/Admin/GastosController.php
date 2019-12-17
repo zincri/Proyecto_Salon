@@ -22,7 +22,7 @@ class GastosController extends Controller
 
     public function index()
     {
-        $datos = Expense::all();
+        $datos = Expense::where('activo', '=', '1')->get();
         return view("contenido_admin.gastos.index",['datos'=>$datos]);
     }
 
@@ -90,6 +90,9 @@ class GastosController extends Controller
      */
     public function destroy($id)
     {
+        $gasto = Expense::findOrFail($id);
+        $gasto->activo = 0;
+        $gasto->update();
         return Redirect::to('administrador/gastos');
     }
 }
