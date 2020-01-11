@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;  //ESTO HE FUNCIONE EL LOGOUT
+use Illuminate\Foundation\Auth\AuthenticatesUsers;  //ESTO HACE FUNCIONE EL LOGOUT
 use Illuminate\Support\Facades\Redirect;
 use App\User;
 use Illuminate\Support\Facades\Hash;
